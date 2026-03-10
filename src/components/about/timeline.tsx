@@ -7,7 +7,7 @@ import type { TimelineItem } from "@/data/experience";
 
 export function Timeline({ items }: { items: TimelineItem[] }) {
   return (
-    <div className="relative ml-8 border-l-2 border-primary/30 pl-16">
+    <div className="relative ml-4 border-l-2 border-primary/30 pl-8 sm:ml-8 sm:pl-16">
       {items.map((item, i) => (
         <motion.div
           key={`${item.title}-${item.period}`}
@@ -18,7 +18,7 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
           className={cn("relative pb-10 last:pb-0")}
         >
           {/* Circle centered on the line */}
-          <div className="absolute -left-[calc(4rem+1.25rem+1px)] flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary/30 bg-background">
+          <div className="absolute -left-[calc(2rem+1.25rem+1px)] sm:-left-[calc(4rem+1.25rem+1px)] flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary/30 bg-background">
             {item.type === "work" ? (
               <Briefcase className="h-4 w-4 text-primary" />
             ) : (

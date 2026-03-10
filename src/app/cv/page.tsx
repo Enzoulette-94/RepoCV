@@ -47,7 +47,7 @@ function CvTimeline({
     <div className="space-y-4">
       {items.map((item) => (
         <div key={`${item.title}-${item.period}`}>
-          <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#1a56db]/70">
             {item.period}
           </p>
           <h3 className="text-sm font-bold text-black">{item.title}</h3>
@@ -70,14 +70,14 @@ export default function CvPage() {
   return (
     <>
       {/* Print button — hidden when printing */}
-      <div className="print:hidden fixed top-24 right-8 z-50">
+      <div className="print:hidden fixed top-24 right-4 z-50 sm:right-8">
         <PrintButton />
       </div>
 
-      <div className="mx-auto max-w-[210mm] bg-white px-10 py-10 text-black print:px-0 print:py-0">
+      <div className="mx-auto w-full max-w-[210mm] bg-white px-4 py-6 text-black sm:px-10 sm:py-10 print:px-0 print:py-0">
         {/* Header */}
         <div className="text-center">
-          <h1 className="text-3xl font-bold uppercase tracking-widest text-black">
+          <h1 className="text-3xl font-bold uppercase tracking-widest text-[#1a56db]">
             Enzo Natali
           </h1>
           <p className="mt-1 text-sm font-medium uppercase tracking-wider text-neutral-600">
@@ -89,21 +89,21 @@ export default function CvPage() {
         <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-xs text-neutral-600">
           {contactInfo.map((item) => (
             <span key={item.label} className="inline-flex items-center gap-1.5">
-              <item.icon className="h-3 w-3" />
+              <item.icon className="h-3 w-3 text-[#1a56db]" />
               {item.label}
             </span>
           ))}
         </div>
 
-        <hr className="my-5 border-black" />
+        <hr className="my-5 border-[#1a56db]" />
 
         {/* Two columns */}
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
           {/* Left */}
           <div className="space-y-6">
             {/* Profil */}
             <section>
-              <h2 className="text-xs font-bold uppercase tracking-widest text-black">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-[#1a56db]">
                 Profil
               </h2>
               <div className="mt-2 space-y-2 text-xs leading-relaxed text-neutral-600">
@@ -128,7 +128,7 @@ export default function CvPage() {
 
             {/* Technologies */}
             <section>
-              <h2 className="text-xs font-bold uppercase tracking-widest text-black">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-[#1a56db]">
                 Technologies
               </h2>
               <div className="mt-2 flex flex-wrap gap-1.5">
@@ -136,7 +136,7 @@ export default function CvPage() {
                   <Badge
                     key={skill.name}
                     variant="outline"
-                    className="rounded border-neutral-400 text-[10px] text-neutral-700 print:border-neutral-300"
+                    className="rounded border-[#1a56db]/40 text-[10px] text-[#1a56db] print:border-[#1a56db]/30"
                   >
                     {skill.name}
                   </Badge>
@@ -146,7 +146,7 @@ export default function CvPage() {
 
             {/* Environnement de travail */}
             <section>
-              <h2 className="text-xs font-bold uppercase tracking-widest text-black">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-[#1a56db]">
                 Environnement de travail
               </h2>
               <div className="mt-2 flex flex-wrap gap-1.5">
@@ -154,7 +154,7 @@ export default function CvPage() {
                   <Badge
                     key={tool}
                     variant="outline"
-                    className="rounded border-neutral-400 text-[10px] text-neutral-700 print:border-neutral-300"
+                    className="rounded border-[#1a56db]/40 text-[10px] text-[#1a56db] print:border-[#1a56db]/30"
                   >
                     {tool}
                   </Badge>
@@ -164,7 +164,7 @@ export default function CvPage() {
 
             {/* Soft skills */}
             <section>
-              <h2 className="text-xs font-bold uppercase tracking-widest text-black">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-[#1a56db]">
                 Soft Skills
               </h2>
               <div className="mt-2 flex flex-wrap gap-1.5">
@@ -172,7 +172,7 @@ export default function CvPage() {
                   <Badge
                     key={skill}
                     variant="outline"
-                    className="rounded border-neutral-400 text-[10px] text-neutral-700 print:border-neutral-300"
+                    className="rounded border-[#1a56db]/40 text-[10px] text-[#1a56db] print:border-[#1a56db]/30"
                   >
                     {skill}
                   </Badge>
@@ -185,7 +185,7 @@ export default function CvPage() {
           <div className="space-y-6">
             {/* Formation */}
             <section>
-              <h2 className="text-xs font-bold uppercase tracking-widest text-black">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-[#1a56db]">
                 Formation
               </h2>
               <div className="mt-2">
@@ -195,7 +195,7 @@ export default function CvPage() {
 
             {/* Expériences */}
             <section>
-              <h2 className="text-xs font-bold uppercase tracking-widest text-black">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-[#1a56db]">
                 Expériences professionnelles
               </h2>
               <div className="mt-2">

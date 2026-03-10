@@ -118,7 +118,7 @@ export default function AboutPage() {
         </FadeIn>
 
         {/* Two-column layout like the CV */}
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-8 md:gap-12 lg:grid-cols-2">
           {/* Left column — Profil + Compétences */}
           <div className="space-y-12">
             {/* Profil */}

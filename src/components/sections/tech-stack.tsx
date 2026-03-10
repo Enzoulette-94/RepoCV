@@ -24,7 +24,7 @@ export function TechStack() {
         </p>
       </div>
 
-      <div className="mx-auto mt-12 grid max-w-4xl gap-10 md:grid-cols-3">
+      <div className="mx-auto mt-12 grid max-w-4xl gap-8 sm:grid-cols-2 md:grid-cols-3 sm:gap-10">
         {categories.map((category) => (
           <div key={category} className="space-y-4">
             <h3 className="text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground">
