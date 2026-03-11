@@ -23,7 +23,7 @@ export function Hero() {
           </span>
         </p>
         <p className="mx-auto max-w-xl text-base text-muted-foreground sm:text-xl">
-          Je crée des sites web en <TechRotator />
+          Je développe des applications web en <TechRotator />
         </p>
       </motion.div>
 

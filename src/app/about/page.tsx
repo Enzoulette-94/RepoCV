@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Download, Github, MapPin } from "lucide-react";
+import { Download, Github, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
@@ -19,6 +19,16 @@ export const metadata: Metadata = {
 };
 
 const contactInfo = [
+  {
+    icon: Phone,
+    label: "06 21 84 79 57",
+    href: "tel:+33621847957",
+  },
+  {
+    icon: Mail,
+    label: "Enzonatali75@gmail.com",
+    href: "mailto:Enzonatali75@gmail.com",
+  },
   {
     icon: MapPin,
     label: "Saint-Maur-des-Fossés, 94100",
@@ -146,7 +156,8 @@ export default function AboutPage() {
                   Le développement web représente pour moi un terrain
                   d&apos;exploration permanent : comprendre l&apos;inconnu,
                   analyser, expérimenter, corriger et progresser. Je recherche
-                  une opportunité junior / alternance pour m&apos;investir dans
+                  une opportunité junior en stage de 6 mois pour finaliser
+                  ma formation, m&apos;investir dans
                   des projets ambitieux, relever des défis techniques et
                   continuer à évoluer rapidement au sein d&apos;une équipe
                   engagée.

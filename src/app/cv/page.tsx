@@ -119,9 +119,10 @@ export default function CvPage() {
                   et imprévisibles.
                 </p>
                 <p>
-                  Je recherche une opportunité junior / alternance pour
-                  m&apos;investir dans des projets ambitieux et continuer à
-                  évoluer rapidement au sein d&apos;une équipe engagée.
+                  Je recherche une opportunité junior en stage de 6 mois
+                  pour finaliser ma formation, m&apos;investir dans des projets
+                  ambitieux et continuer à évoluer rapidement au sein
+                  d&apos;une équipe engagée.
                 </p>
               </div>
             </section>

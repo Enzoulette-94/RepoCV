@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Github, MapPin } from "lucide-react";
+import { Github, Mail, MapPin, Phone } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
 
@@ -9,6 +9,18 @@ export const metadata: Metadata = {
 };
 
 const contactInfo = [
+  {
+    icon: Phone,
+    label: "Téléphone",
+    value: "06 21 84 79 57",
+    href: "tel:+33621847957",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "Enzonatali75@gmail.com",
+    href: "mailto:Enzonatali75@gmail.com",
+  },
   {
     icon: MapPin,
     label: "Adresse",
