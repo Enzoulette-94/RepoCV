@@ -28,6 +28,12 @@ const workEnvironment = [
   "Git / GitHub",
 ];
 
+const hobbies = [
+  { name: "Sport", description: "Bercé depuis petit par ma famille — grand fan de Football, Basket et Football Américain." },
+  { name: "Jeux vidéos", description: "Grand joueur de Pokémon, FIFA, Clair Obscur et Le Seigneur des Anneaux sur PS2." },
+  { name: "Manger", description: "Manger BEAUCOUP avec mes proches." },
+];
+
 const softSkills = [
   "Travail d'équipe",
   "Communication",
@@ -119,7 +125,7 @@ export default function CvPage() {
                   et imprévisibles.
                 </p>
                 <p>
-                  Je recherche une opportunité junior en stage de 6 mois
+                  Je recherche une opportunité en stage de 6 mois
                   pour finaliser ma formation, m&apos;investir dans des projets
                   ambitieux et continuer à évoluer rapidement au sein
                   d&apos;une équipe engagée.
@@ -180,6 +186,21 @@ export default function CvPage() {
                 ))}
               </div>
             </section>
+
+            {/* Hobbies */}
+            <section>
+              <h2 className="text-xs font-bold uppercase tracking-widest text-[#1a56db]">
+                Centres d&apos;intérêt
+              </h2>
+              <div className="mt-2 space-y-1.5">
+                {hobbies.map((hobby) => (
+                  <div key={hobby.name}>
+                    <p className="text-[10px] font-semibold text-black">{hobby.name}</p>
+                    <p className="text-[9px] leading-relaxed text-neutral-500">{hobby.description}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
           </div>
 
           {/* Right */}
@@ -203,6 +224,7 @@ export default function CvPage() {
                 <CvTimeline items={workItems} />
               </div>
             </section>
+
           </div>
         </div>
       </div>

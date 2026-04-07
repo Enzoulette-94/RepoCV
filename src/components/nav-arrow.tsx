@@ -31,7 +31,7 @@ export function NavArrow({
         className="group flex h-12 w-12 items-center justify-center rounded-full border border-border transition-colors hover:border-primary hover:bg-primary/10"
         aria-label={label}
       >
-        <Icon className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-primary" />
+        <Icon className="h-5 w-5 text-primary transition-colors group-hover:text-primary/70" />
       </Link>
     </motion.div>
   );

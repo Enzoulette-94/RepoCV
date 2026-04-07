@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Timeline } from "@/components/about/timeline";
-import { SkillBars } from "@/components/about/skill-bars";
 import { FadeIn } from "@/components/about/fade-in";
 import { timeline } from "@/data/experience";
 import { skills } from "@/data/skills";
@@ -50,6 +49,12 @@ const workEnvironment = [
   "Docker",
   "Vercel",
   "Git / GitHub",
+];
+
+const hobbies = [
+  { name: "Sport", description: "Bercé depuis petit par ma famille — grand fan de Football, Basket et Football Américain." },
+  { name: "Jeux vidéos", description: "Grand joueur de Pokémon, FIFA, Clair Obscur et Le Seigneur des Anneaux sur PS2." },
+  { name: "Manger", description: "Manger BEAUCOUP avec mes proches." },
 ];
 
 const softSkills = [
@@ -156,24 +161,12 @@ export default function AboutPage() {
                   Le développement web représente pour moi un terrain
                   d&apos;exploration permanent : comprendre l&apos;inconnu,
                   analyser, expérimenter, corriger et progresser. Je recherche
-                  une opportunité junior en stage de 6 mois pour finaliser
+                  une opportunité en stage de 6 mois pour finaliser
                   ma formation, m&apos;investir dans
                   des projets ambitieux, relever des défis techniques et
                   continuer à évoluer rapidement au sein d&apos;une équipe
                   engagée.
                 </p>
-              </div>
-            </section>
-            </FadeIn>
-
-            {/* Compétences */}
-            <FadeIn>
-            <section>
-              <h2 className="text-xl font-bold uppercase tracking-wider text-primary">
-                Compétences
-              </h2>
-              <div className="mt-4">
-                <SkillBars />
               </div>
             </section>
             </FadeIn>
@@ -225,6 +218,23 @@ export default function AboutPage() {
               </div>
             </section>
             </FadeIn>
+
+            {/* Hobbies */}
+            <FadeIn>
+            <section>
+              <h2 className="text-xl font-bold uppercase tracking-wider text-primary">
+                Centres d&apos;intérêt
+              </h2>
+              <div className="mt-4 space-y-3">
+                {hobbies.map((hobby) => (
+                  <div key={hobby.name}>
+                    <p className="text-sm font-medium">{hobby.name}</p>
+                    <p className="text-sm text-muted-foreground">{hobby.description}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+            </FadeIn>
           </div>
 
           {/* Right column — Formation + Expérience */}
@@ -252,6 +262,7 @@ export default function AboutPage() {
               </div>
             </section>
             </FadeIn>
+
           </div>
         </div>
       </div>

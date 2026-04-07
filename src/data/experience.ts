@@ -25,6 +25,14 @@ export const timeline: TimelineItem[] = [
     type: "work",
   },
   {
+    title: "Formation intensive Builder IA",
+    institution: "The Hacking Project",
+    period: "Avril 2026 — Mai 2026",
+    description:
+      "Formation courte et intensive pour prendre en main l'IA et l'ajouter à notre environnement de travail.",
+    type: "education",
+  },
+  {
     title: "Formation intensive Full-Stack",
     institution: "The Hacking Project",
     period: "Sept 2025 — Mars 2026",

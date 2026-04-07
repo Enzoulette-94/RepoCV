@@ -22,40 +22,17 @@ export function ProjectsClient() {
           </p>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="mx-auto mt-14 flex max-w-4xl flex-col divide-y divide-border">
           <AnimatePresence mode="popLayout">
-            {completed.map((project, i) => {
-              const fullWidth = i === 0 || i === completed.length - 1;
-              return (
-                <ProjectCard
-                  key={project.slug}
-                  project={project}
-                  index={i}
-                  fullWidth={fullWidth}
-                />
-              );
-            })}
+            {completed.map((project, i) => (
+              <ProjectCard
+                key={project.slug}
+                project={project}
+                index={i}
+              />
+            ))}
           </AnimatePresence>
         </div>
-
-        {inProgress.length > 0 && (
-          <div className="mx-auto mt-20 max-w-4xl">
-            <h2 className="text-xl font-bold tracking-tight text-primary mb-6">
-              En cours
-            </h2>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <AnimatePresence mode="popLayout">
-                {inProgress.map((project, i) => (
-                  <ProjectCard
-                    key={project.slug}
-                    project={project}
-                    index={i}
-                  />
-                ))}
-              </AnimatePresence>
-            </div>
-          </div>
-        )}
       </div>
     </>
   );

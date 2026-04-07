@@ -1,36 +1,57 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/data/projects";
+import { Lightbox } from "./lightbox";
 
 export function ProjectCard({
   project,
   index = 0,
-  fullWidth = false,
 }: {
   project: Project;
   index?: number;
-  fullWidth?: boolean;
 }) {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
   return (
+    <>
+      <Lightbox
+        src={lightboxOpen ? project.image : null}
+        alt={project.title}
+        onClose={() => setLightboxOpen(false)}
+      />
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.08 }}
       layout
-      className={cn(fullWidth && "sm:col-span-2")}
+      className="group py-8"
     >
-      <div
-        className={cn(
-          "group relative flex h-full flex-col overflow-hidden rounded-2xl border-2 border-blue-700 bg-muted/20 p-6 transition-all duration-300 hover:border-blue-900 hover:bg-muted/40 hover:scale-[1.015] hover:shadow-2xl hover:shadow-blue-700/20",
-          fullWidth && "sm:flex-row sm:items-start sm:gap-12"
+      <div className="flex items-start gap-8">
+        {/* Aperçu image */}
+        {project.image && (
+          <button
+            onClick={() => setLightboxOpen(true)}
+            className="hidden shrink-0 overflow-hidden rounded-lg border border-border sm:block cursor-zoom-in"
+            aria-label={`Agrandir l'aperçu de ${project.title}`}
+          >
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={200}
+              height={120}
+              className="h-[120px] w-[200px] object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </button>
         )}
-      >
+
         {/* Contenu principal */}
-        <div className="relative flex min-w-0 flex-1 flex-col">
+        <div className="flex min-w-0 flex-1 flex-col">
           <Link href={`/projects/${project.slug}`} className="group/title">
             <h2 className="text-xl font-semibold tracking-tight text-foreground transition-opacity group-hover/title:opacity-70">
               {project.title}
@@ -52,12 +73,7 @@ export function ProjectCard({
         </div>
 
         {/* Actions */}
-        <div
-          className={cn(
-            "relative mt-5 flex shrink-0 items-center gap-1",
-            fullWidth && "sm:mt-0 sm:flex-col sm:items-end sm:justify-between"
-          )}
-        >
+        <div className="flex shrink-0 flex-col items-end justify-between gap-6">
           <div className="flex gap-0.5">
             {project.github && (
               <a
@@ -84,7 +100,7 @@ export function ProjectCard({
           </div>
           <Link
             href={`/projects/${project.slug}`}
-            className="ml-auto flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-foreground sm:ml-0"
+            className="flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
           >
             Détails
             <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -92,5 +108,6 @@ export function ProjectCard({
         </div>
       </div>
     </motion.div>
+    </>
   );
 }
