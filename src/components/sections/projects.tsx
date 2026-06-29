@@ -6,7 +6,10 @@ import { projects } from "@/data/projects";
 import { ProjectCard } from "@/components/projects/project-card";
 
 export function ProjectsSection() {
-  const completed = projects.filter((p) => p.status !== "in-progress");
+  const completed = [
+    ...projects.filter((p) => p.status !== "in-progress"),
+    ...projects.filter((p) => p.status === "in-progress"),
+  ];
 
   return (
     <section id="projects" className="scroll-mt-16 py-24">

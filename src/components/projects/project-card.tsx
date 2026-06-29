@@ -53,10 +53,15 @@ export function ProjectCard({
 
         {/* Contenu principal */}
         <div className="flex min-w-0 flex-1 flex-col">
-          <Link href={`/projects/${project.slug}`} className="group/title">
+          <Link href={`/projects/${project.slug}`} className="group/title inline-flex items-center gap-2 flex-wrap">
             <h2 className="text-xl font-semibold tracking-tight text-foreground transition-opacity group-hover/title:opacity-70">
               {project.title}
             </h2>
+            {project.status === "in-progress" && (
+              <span className="inline-flex items-center rounded-full border border-amber-500/30 bg-amber-500/10 px-2.5 py-0.5 text-xs font-medium text-amber-600 dark:text-amber-400">
+                En cours
+              </span>
+            )}
           </Link>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             {project.description}
@@ -92,7 +97,7 @@ export function ProjectCard({
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Démo — ${project.title}`}
+                aria-label={`Voir le site — ${project.title}`}
                 className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               >
                 <ExternalLink className="h-4 w-4" />

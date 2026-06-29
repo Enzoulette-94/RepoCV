@@ -57,9 +57,13 @@ export default async function ProjectPage({ params }: Params) {
         </div>
 
         {/* Description */}
-        <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-          {project.longDescription}
-        </p>
+        <div className="mt-6 space-y-4">
+          {project.longDescription.split("\n\n").map((paragraph, i) => (
+            <p key={i} className="text-lg text-muted-foreground leading-relaxed">
+              {paragraph}
+            </p>
+          ))}
+        </div>
 
         {/* Points clés */}
         {project.highlights.length > 0 && (
@@ -96,7 +100,7 @@ export default async function ProjectPage({ params }: Params) {
             <Button asChild>
               <a href={project.demo} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="mr-2 h-4 w-4" />
-                Voir la démo
+                Voir le site
               </a>
             </Button>
           )}

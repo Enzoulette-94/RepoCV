@@ -40,7 +40,7 @@ export function AboutSection() {
     <section id="about" className="scroll-mt-16 container mx-auto max-w-5xl px-4 py-24">
       <FadeIn delay={0.1}>
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">À propos</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">À propos de moi</h2>
           <p className="mt-2 text-lg font-medium text-primary">Développeur Web Full Stack</p>
         </div>
       </FadeIn>
