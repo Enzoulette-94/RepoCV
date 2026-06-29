@@ -21,5 +21,5 @@ export const skills: Skill[] = [
   { name: "REST API", category: "backend" },
   { name: "Devise", category: "backend" },
   { name: "Stripe", category: "backend" },
-
+  { name: "Supabase", category: "backend" },
 ];

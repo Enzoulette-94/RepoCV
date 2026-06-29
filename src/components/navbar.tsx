@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -13,57 +13,89 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { useState } from "react";
 
 const navLinks = [
-  { href: "/about", label: "CV" },
-  { href: "/projects", label: "Mes Projets" },
+  { id: "projects", label: "Mes Projets" },
+  { id: "about", label: "À propos" },
+  { id: "contact", label: "Contact" },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState("hero");
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const sectionIds = ["hero", "about", "projects", "contact"];
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { rootMargin: "-30% 0px -60% 0px" }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, [pathname]);
 
   if (pathname === "/cv") return null;
 
+  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, id: string) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.href = `/#${id}`;
+    }
+  };
+
   return (
     <header className="fixed top-0 z-50 w-full bg-background/80 backdrop-blur-sm">
-      <nav className="container mx-auto flex h-16 items-center justify-between px-4">
-        <div className="flex items-center gap-2">
+      <nav className="container mx-auto grid h-16 grid-cols-3 items-center px-4">
+        {/* Left — theme toggle */}
+        <div className="flex items-center">
           <ThemeToggle />
+        </div>
+
+        {/* Center — nav links */}
+        <div className="hidden items-center justify-center gap-1 md:flex">
           <Button
             variant="ghost"
             size="sm"
-            asChild
+            onClick={(e) => scrollTo(e, "hero")}
             className={cn(
               "text-muted-foreground transition-colors hover:text-foreground",
-              pathname === "/" && "text-primary font-medium"
+              activeSection === "hero" && "text-primary font-medium"
             )}
           >
-            <Link href="/">Accueil</Link>
+            Accueil
           </Button>
-        </div>
-
-        {/* Desktop nav */}
-        <div className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
             <Button
-              key={link.href}
+              key={link.id}
               variant="ghost"
               size="sm"
-              asChild
+              onClick={(e) => scrollTo(e, link.id)}
               className={cn(
                 "text-muted-foreground transition-colors hover:text-foreground",
-                pathname === link.href && "text-primary font-medium"
+                activeSection === link.id && "text-primary font-medium"
               )}
             >
-              <Link href={link.href}>{link.label}</Link>
+              {link.label}
             </Button>
           ))}
         </div>
 
-        {/* Mobile nav */}
-        <div className="flex items-center md:hidden">
+        {/* Right — empty on desktop, hamburger on mobile */}
+        <div className="flex items-center justify-end md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Menu">
@@ -77,16 +109,18 @@ export function Navbar() {
               <div className="mt-6 flex flex-col gap-2">
                 {navLinks.map((link) => (
                   <Button
-                    key={link.href}
+                    key={link.id}
                     variant="ghost"
-                    asChild
                     className={cn(
                       "justify-start text-muted-foreground",
-                      pathname === link.href && "text-primary font-medium"
+                      activeSection === link.id && "text-primary font-medium"
                     )}
-                    onClick={() => setOpen(false)}
+                    onClick={(e) => {
+                      scrollTo(e, link.id);
+                      setOpen(false);
+                    }}
                   >
-                    <Link href={link.href}>{link.label}</Link>
+                    {link.label}
                   </Button>
                 ))}
               </div>

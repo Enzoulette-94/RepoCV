@@ -34,7 +34,7 @@ export default async function ProjectPage({ params }: Params) {
     <PageTransition>
       <div className="container mx-auto max-w-3xl px-4 py-16">
         <Button variant="ghost" size="sm" asChild className="mb-8">
-          <Link href="/projects">
+          <Link href="/#projects">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Retour aux projets
           </Link>
