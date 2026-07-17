@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://enzonatali.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -36,6 +36,14 @@ export const metadata: Metadata = {
     "portfolio",
   ],
   authors: [{ name: "Enzo Natali" }],
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16.png", type: "image/png", sizes: "16x16" },
+    ],
+    apple: [{ url: "/favicon-180.png", sizes: "180x180" }],
+  },
   openGraph: {
     type: "website",
     locale: "fr_FR",
@@ -43,12 +51,22 @@ export const metadata: Metadata = {
     title: "Portfolio | Développeur Web Full Stack",
     description:
       "Portfolio de développeur web full stack — projets, compétences et parcours.",
+    url: "/",
+    images: [
+      {
+        url: "/og-image-1200x630.png",
+        width: 1200,
+        height: 630,
+        alt: "Enzo Natali — Développeur Full Stack",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Portfolio | Développeur Web Full Stack",
     description:
       "Portfolio de développeur web full stack — projets, compétences et parcours.",
+    images: ["/og-image-1200x630.png"],
   },
   robots: {
     index: true,
