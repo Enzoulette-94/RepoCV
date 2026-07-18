@@ -161,9 +161,8 @@ export default function AboutPage() {
                   Le développement web représente pour moi un terrain
                   d&apos;exploration permanent : comprendre l&apos;inconnu,
                   analyser, expérimenter, corriger et progresser. Je recherche
-                  une opportunité en stage de 6 mois pour finaliser
-                  ma formation, m&apos;investir dans
-                  des projets ambitieux, relever des défis techniques et
+                  une opportunité pour m&apos;investir dans des projets ambitieux,
+                  relever des défis techniques et
                   continuer à évoluer rapidement au sein d&apos;une équipe
                   engagée.
                 </p>
