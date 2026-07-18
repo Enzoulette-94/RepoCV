@@ -92,6 +92,16 @@ export function Navbar() {
               {link.label}
             </Button>
           ))}
+          <Button
+            asChild
+            variant="ghost"
+            size="sm"
+            className="text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <a href="/cv.pdf" download="EnzoNataliCv2026-DevFullStack.pdf">
+              Mon CV
+            </a>
+          </Button>
         </div>
 
         {/* Right — empty on desktop, hamburger on mobile */}
@@ -123,6 +133,19 @@ export function Navbar() {
                     {link.label}
                   </Button>
                 ))}
+                <Button
+                  asChild
+                  variant="ghost"
+                  className="justify-start text-muted-foreground"
+                >
+                  <a
+                    href="/cv.pdf"
+                    download="EnzoNataliCv2026-DevFullStack.pdf"
+                    onClick={() => setOpen(false)}
+                  >
+                    Mon CV
+                  </a>
+                </Button>
               </div>
             </SheetContent>
           </Sheet>

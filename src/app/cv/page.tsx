@@ -29,9 +29,9 @@ const workEnvironment = [
 ];
 
 const hobbies = [
-  { name: "Sport", description: "Bercé depuis petit par ma famille — grand fan de Football, Basket et Football Américain." },
-  { name: "Jeux vidéos", description: "Grand joueur de Pokémon, FIFA, Clair Obscur et Le Seigneur des Anneaux sur PS2." },
-  { name: "Manger", description: "Manger BEAUCOUP avec mes proches." },
+  { name: "Sports collectifs", description: "Bercé depuis petit par ma famille — grand fan de Football, Basket et Football Américain." },
+  { name: "Jeux vidéo et culture numérique", description: "Grand joueur de Pokémon, FIFA, Clair Obscur et Le Seigneur des Anneaux sur PS2." },
+  { name: "Gastronomie", description: "Manger BEAUCOUP avec mes proches." },
 ];
 
 const softSkills = [
