@@ -68,7 +68,7 @@ export function AboutSection() {
       <FadeIn delay={0.3}>
         <div className="mt-6 text-center">
           <Button asChild>
-            <Link href="/cv.pdf" target="_blank" download="EnzoNataliCv2026-DevFullStack.pdf">
+            <Link href="/cv.pdf" target="_blank" download="EnzoNatali26-DevFusllStack.pdf">
               <Download className="mr-2 h-4 w-4" />
               Télécharger mon CV
             </Link>

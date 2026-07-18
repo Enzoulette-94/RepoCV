@@ -98,7 +98,7 @@ export function Navbar() {
             size="sm"
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
-            <a href="/cv.pdf" download="EnzoNataliCv2026-DevFullStack.pdf">
+            <a href="/cv.pdf" download="EnzoNatali26-DevFusllStack.pdf">
               Mon CV
             </a>
           </Button>
@@ -140,7 +140,7 @@ export function Navbar() {
                 >
                   <a
                     href="/cv.pdf"
-                    download="EnzoNataliCv2026-DevFullStack.pdf"
+                    download="EnzoNatali26-DevFusllStack.pdf"
                     onClick={() => setOpen(false)}
                   >
                     Mon CV
