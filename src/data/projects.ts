@@ -49,7 +49,7 @@ export const projects: Project[] = [
   },
   {
     slug: "marketplace",
-    title: "Haubegerie de Pontius",
+    title: "Haubergerie de Pontius",
     description:
       "Backend d'une marketplace — authentification, paiement Stripe et API REST. Projet collaboratif (rôle : backend uniquement).",
     longDescription:
