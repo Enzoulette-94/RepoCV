@@ -34,6 +34,8 @@ export default async function ProjectPage({ params }: Params) {
   const next = projects[i + 1];
   const live = p.sheet.state === "En ligne" ? p.demo : undefined;
   const used = projectTools[p.slug]?.tools ?? [];
+  // Le rôle ne compte que sur les projets à plusieurs
+  const team = !p.role.startsWith("Solo");
   // Une seule capture : c'est déjà celle du haut de page, pas besoin de la répéter
   const shots = p.screenshots ?? [];
 
@@ -86,7 +88,7 @@ export default async function ProjectPage({ params }: Params) {
               <dl>
                 <div><dt>Pour qui</dt><dd>{p.sheet.who}</dd></div>
                 <div><dt>Le besoin</dt><dd>{p.sheet.need}</dd></div>
-                <div><dt>Mon rôle</dt><dd>{p.role}</dd></div>
+                {team && <div><dt>Mon rôle</dt><dd>{p.role}</dd></div>}
                 <div><dt>Durée</dt><dd>{p.duration}</dd></div>
                 <div><dt>Aujourd’hui</dt><dd>{p.sheet.now}</dd></div>
               </dl>
