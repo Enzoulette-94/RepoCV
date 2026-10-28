@@ -184,7 +184,6 @@ export function LikesScene() {
       <div className="inner">
         <div className="cloud">
           <div className="cloud-center">
-            <p className="eyebrow" data-in>En dehors du code</p>
             <h2 id="h-infos" tabIndex={-1} data-in style={vars({ "--d": ".06s" })}>Ce que j’aime</h2>
             <p className="intro" data-in style={vars({ "--d": ".12s" })}>Cliquez sur un mot pour en savoir plus.</p>
           </div>
