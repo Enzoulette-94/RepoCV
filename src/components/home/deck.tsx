@@ -194,10 +194,15 @@ export function Deck({ children }: { children: ReactNode }) {
     // Glissement : vertical pour changer de page, horizontal entre projets ou loisirs
     let ty: number | null = null;
     let tx: number | null = null;
-    addEventListener("touchmove", (e) => { if (!modal()) e.preventDefault(); }, { passive: false, signal: ctrl.signal });
-    addEventListener("touchstart", (e) => { ty = e.touches[0].clientY; tx = e.touches[0].clientX; }, { passive: true, signal: ctrl.signal });
+    // Une rangée qui défile sur le côté (data-scroll-x) garde le doigt pour elle
+    let inRow = false;
+    addEventListener("touchmove", (e) => { if (!modal() && !inRow) e.preventDefault(); }, { passive: false, signal: ctrl.signal });
+    addEventListener("touchstart", (e) => {
+      ty = e.touches[0].clientY; tx = e.touches[0].clientX;
+      inRow = !!(e.target as Element).closest?.("[data-scroll-x]");
+    }, { passive: true, signal: ctrl.signal });
     addEventListener("touchend", (e) => {
-      if (ty === null || tx === null || modal()) return;
+      if (ty === null || tx === null || modal() || inRow) { ty = tx = null; return; }
       const dy = ty - e.changedTouches[0].clientY;
       const dx = tx - e.changedTouches[0].clientX;
       if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) && LATERAL.includes(scenes[cur].dataset.chapter ?? "")) nav(dx > 0 ? 1 : -1);

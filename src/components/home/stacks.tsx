@@ -34,9 +34,9 @@ export function StacksScene() {
       <div className="inner">
         <div className="side">
           <p className="eyebrow" data-in>Stacks</p>
-          <h2 id="h-stacks" tabIndex={-1} data-in style={vars({ "--d": ".06s" })}>Avec quoi <em>je travaille</em></h2>
+          <h2 id="h-stacks" tabIndex={-1} data-in style={vars({ "--d": ".06s" })}>Avec qui <em>je travaille</em></h2>
           <p className="lead" data-in style={vars({ "--d": ".12s" })}>Les outils de chaque projet, et les IA qui m’accompagnent quand je code.</p>
-          <div className="projs" role="group" aria-label="Voir les outils d’un projet" data-in style={vars({ "--d": ".18s" })}>
+          <div className="projs" data-scroll-x role="group" aria-label="Voir les outils d’un projet" data-in style={vars({ "--d": ".18s" })}>
             <button type="button" aria-pressed={!slug} onClick={() => setSlug(null)}>Tous</button>
             {projects.map((p) => (
               <button key={p.slug} type="button" aria-pressed={slug === p.slug} onClick={() => setSlug(p.slug)}>
