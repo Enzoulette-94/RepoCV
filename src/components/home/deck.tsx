@@ -1,17 +1,9 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
-import { contact } from "@/data/home";
+import { SiteMenu } from "./site-menu";
 import "./home.css";
 
-const CHAPTERS = [
-  { id: "accueil", label: "Accueil" },
-  { id: "stacks", label: "Stacks" },
-  { id: "projets", label: "Projets" },
-  { id: "parcours", label: "Parcours" },
-  { id: "contact", label: "Contact" },
-  { id: "infos", label: "Infos" },
-];
 // Mot affiché sur le rideau entre deux chapitres
 const CURTAIN_LABEL: Record<string, string> = {
   accueil: "Me revoilà",
@@ -227,22 +219,7 @@ export function Deck({ children }: { children: ReactNode }) {
 
   return (
     <div className="atelier" ref={rootRef}>
-      <header className="nav">
-        <nav className="inner" aria-label="Menu principal">
-          <ul className="menu">
-            {CHAPTERS.map((c) => (
-              <li key={c.id}><a href={`#${c.id}`} data-chapter={c.id}>{c.label}</a></li>
-            ))}
-            <li className="sep" aria-hidden="true" />
-            <li className="cv">
-              <a href={contact.cv} download={contact.cvFileName}>
-                CV{" "}
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1.5v8M3.5 6 7 9.5 10.5 6M2 12.5h10" stroke="currentColor" strokeWidth="1.5" /></svg>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <SiteMenu />
 
       <div className="pager">
         <button type="button" className="prev" aria-label="Page précédente">

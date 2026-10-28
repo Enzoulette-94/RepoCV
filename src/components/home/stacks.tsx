@@ -3,18 +3,10 @@
 import { useState, type CSSProperties } from "react";
 import { projects } from "@/data/projects";
 import { codingAi, projectTools, toolGroups, tools, type ToolId } from "@/data/stacks";
+import { ToolIcon } from "./tool-icon";
 
 const vars = (v: Record<string, string | number>) => v as CSSProperties;
 const usage = (id: ToolId) => Object.values(projectTools).filter((p) => p.tools.includes(id)).length;
-
-function ToolIcon({ id }: { id: ToolId }) {
-  const t: { icon?: string; mono?: string } = tools[id];
-  return t.icon ? (
-    <svg className="ic" viewBox="0 0 24 24" aria-hidden="true"><path d={t.icon} /></svg>
-  ) : (
-    <span className="mono" aria-hidden="true">{t.mono}</span>
-  );
-}
 
 /**
  * Stacks : tous mes outils rangés par famille, avec les IA en tête.
