@@ -253,7 +253,7 @@
 .atelier .msg { display: flex; align-items: flex-end; gap: 12px; }
 .atelier .msg[hidden] { display: none; }
 .atelier .who { flex: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font: 600 .8125rem/1 var(--body); background: var(--finale-accent); color: var(--finale-bg); visibility: hidden; }
-.atelier .msg.first .who { visibility: visible; }
+.atelier .msg.first .who { visibility: inherit; }
 .atelier .bubble { background: var(--finale-line); color: var(--finale-fg); padding: 12px 18px; border-radius: 20px 20px 20px 6px; font-size: clamp(1.0625rem, 1.5vw, 1.25rem); line-height: 1.45; max-width: 46ch; }
 .atelier .typing { display: inline-flex; gap: 5px; padding: 16px 18px; }
 .atelier .typing i { width: 7px; height: 7px; border-radius: 50%; background: var(--finale-muted); animation: home-blink 1s infinite; }
