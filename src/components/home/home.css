@@ -125,6 +125,15 @@
 .atelier .scene [data-in="zoom"] { --x: 0px; --y: 0px; transform: scale(1.1); }
 .atelier .scene.shown [data-in="zoom"] { transition: opacity 1.8s var(--soft), transform 2.6s var(--soft); }
 .atelier .hero .inner { position: relative; z-index: 1; }
+/* Photo : noir et blanc, elle se dissout vers le nom et vers le bas ; ses blancs prennent la couleur du fond */
+.atelier .hero-photo { position: absolute; top: 0; right: 0; bottom: 0; width: 58%; pointer-events: none; animation: home-photo-in 1.6s var(--soft) both; }
+.atelier .hero-photo img { object-fit: cover; object-position: 50% 18%; filter: grayscale(1) sepia(.18) contrast(1.05); mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 6%, rgba(0, 0, 0, .35) 26%, #000 58%), linear-gradient(180deg, #000 55%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 0%, transparent 6%, rgba(0, 0, 0, .35) 26%, #000 58%), linear-gradient(180deg, #000 55%, transparent 100%);
+  mask-composite: intersect; }
+.dark .atelier .hero-photo img { mix-blend-mode: normal; filter: grayscale(1) sepia(.18) contrast(1.04) brightness(.78); }
+@keyframes home-photo-in { from { opacity: 0; } }
 .atelier .hero h1 { font-size: clamp(4rem, 13vw, 11rem); line-height: .88; font-weight: 340; letter-spacing: -0.035em; }
 .atelier .hero h1 span { display: block; }
 .atelier .hero h1 em { color: var(--accent); font-style: italic; }
@@ -324,7 +333,18 @@
   .atelier .pager .count { writing-mode: horizontal-tb; }
   .atelier .scene { align-content: start; padding-top: calc(var(--nav-h) + 20px + env(safe-area-inset-top, 0px)); padding-bottom: 120px; }
   .atelier .hero .inner, .atelier .project .inner, .atelier .path .inner { grid-template-columns: 1fr; gap: 28px; }
-  .atelier .hero { align-content: center; }
+  .atelier .hero { align-content: end; }
+  .atelier .hero-photo { top: calc(var(--nav-h) - 24px + env(safe-area-inset-top, 0px)); bottom: auto; left: 0; width: auto; height: 56%; }
+  .atelier .hero-photo img { object-position: 50% 8%;
+    -webkit-mask-image: linear-gradient(180deg, #000 35%, transparent 96%); -webkit-mask-composite: source-over;
+    mask-image: linear-gradient(180deg, #000 35%, transparent 96%); mask-composite: add; }
+  /* Texte compact pour laisser le visage dégagé */
+  .atelier .hero h1 { font-size: clamp(3.25rem, 15vw, 4.5rem); }
+  .atelier .hero .role { margin-top: 14px; font-size: 1.25rem; }
+  .atelier .hero .actions { margin-top: 22px; gap: 10px; flex-wrap: nowrap; }
+  .atelier .hero .actions .btn { flex: 1 1 0; padding: 16px 10px; font-size: .9375rem; white-space: nowrap; }
+  .atelier .hero .hint { margin-top: 16px; padding: 0; border: 0; background: none; font-size: .8125rem; }
+  .atelier .hero .hint .keys { display: none; }
   .atelier .hero .actions .btn { flex: 1 1 100%; justify-content: center; }
   .atelier .hint { font-size: .8125rem; }
   .atelier .plist li { grid-template-columns: 1fr auto; gap: 12px; }
@@ -455,6 +475,8 @@
 }
 @media (max-width: 380px) {
   .atelier .menu a { padding: 10px 4px; font-size: .78125rem; }
+  .atelier .hero .actions { flex-wrap: wrap; }
+  .atelier .hero .actions .btn { flex: 1 1 100%; }
 }
 /* Très petits écrans : on retire « Accueil », on y revient par la dernière page ou en remontant */
 @media (max-width: 340px) {
@@ -507,4 +529,5 @@
   .atelier .scene.shown .contact-bg img { animation: none; }
   .atelier .scene .line::after, .atelier .scene .line li { transform: none; opacity: 1; transition: none; }
   .atelier .line li.now .pt { animation: none; }
+  .atelier .hero-photo { animation: none; }
 }

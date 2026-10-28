@@ -13,6 +13,9 @@ const liveUrl = (p: Project) => (p.sheet.state === "En ligne" ? p.demo : undefin
 export function HeroScene() {
   return (
     <section className="scene hero active shown" id="accueil" data-chapter="accueil" aria-labelledby="h-accueil">
+      <div className="hero-photo" aria-hidden="true">
+        <Image src="/home/enzo.jpg" alt="" fill priority sizes="(max-width: 900px) 100vw, 58vw" />
+      </div>
       <div className="inner">
         <h1 id="h-accueil" tabIndex={-1}>
           <span data-in="left" style={vars({ "--d": ".05s" })}>Enzo</span>
