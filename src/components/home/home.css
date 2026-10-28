@@ -62,13 +62,15 @@
 .atelier .menu a { display: flex; align-items: center; gap: 8px; text-decoration: none; padding: 12px 20px; border-radius: 999px; font-size: 1.0625rem; font-weight: 500; color: var(--muted); white-space: nowrap; transition: color .3s, background .3s; }
 .atelier .menu a:hover { color: var(--fg); background: color-mix(in srgb, var(--fg) 6%, transparent); }
 .atelier .menu a.current { color: var(--fg); background: var(--bg-alt); }
-.atelier .menu .cv a { background: var(--accent); color: var(--on-accent); }
-.atelier .menu .cv a:hover { background: color-mix(in srgb, var(--accent) 88%, var(--fg)); }
+.atelier .menu .sep { width: 1px; align-self: stretch; margin: 10px 4px; background: var(--line); }
+.atelier .menu .cv a { color: var(--accent); }
+.atelier .menu .cv a:hover { color: var(--accent); }
 .atelier .menu svg { flex: none; }
 .atelier.tone-dark .menu { background: color-mix(in srgb, var(--finale-bg) 82%, transparent); border-color: var(--finale-line); }
 .atelier.tone-dark .menu a { color: var(--finale-muted); }
 .atelier.tone-dark .menu a:hover, .atelier.tone-dark .menu a.current { color: var(--finale-fg); background: var(--finale-line); }
-.atelier.tone-dark .menu .cv a { background: var(--finale-accent); color: var(--finale-bg); }
+.atelier.tone-dark .menu .sep { background: var(--finale-line); }
+.atelier.tone-dark .menu .cv a, .atelier.tone-dark .menu .cv a:hover { color: var(--finale-accent); }
 .atelier .btn {
   display: inline-flex; align-items: center; gap: 8px; text-decoration: none; cursor: pointer;
   font: 500 .9375rem/1 var(--body); padding: 14px 22px; border-radius: 999px;
@@ -352,6 +354,13 @@
   .atelier .likes .word { animation: none; }
   .atelier .likes .word.m, .atelier .likes .word.s { font-family: var(--body); font-size: 1rem; color: color-mix(in srgb, var(--finale-fg) 78%, transparent); }
   .atelier .word.l { font-size: 1.75rem; }
+  /* Sur mobile, seulement les trois loisirs : on clique pour découvrir le reste */
+  .atelier .likes .pos:not(:has(.l)) { display: none; }
+  .atelier .likes .cloud { flex-direction: column; gap: 4px; }
+  .atelier .likes .pos:has(.l) { flex-basis: auto; margin-top: 0; }
+  .atelier .likes .cloud { align-items: center; }
+  .atelier .likes .pos:has(.l) { white-space: normal; text-align: center; }
+  .atelier .likes .word.l { font-size: clamp(1.5rem, 7.4vw, 2.125rem); padding: 10px 12px; }
   .atelier .likes h2 { font-size: 3rem; }
   .atelier .word.m { font-size: 1.25rem; }
   .atelier .tiles { margin: 28px 0 12px; gap: 22px 28px; }
@@ -411,6 +420,8 @@
   .atelier .fiche dl div { padding-top: 6px; }
 }
 @media (max-width: 380px) {
+  .atelier .menu .sep { margin-inline: 1px; }
+  .atelier .menu .cv svg { display: none; }
   .atelier .menu a { padding: 10px 5px; font-size: .8125rem; }
 }
 @media (prefers-reduced-motion: reduce) {

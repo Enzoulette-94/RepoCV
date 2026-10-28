@@ -227,6 +227,7 @@ export function Deck({ children }: { children: ReactNode }) {
             {CHAPTERS.map((c) => (
               <li key={c.id}><a href={`#${c.id}`} data-chapter={c.id}>{c.label}</a></li>
             ))}
+            <li className="sep" aria-hidden="true" />
             <li className="cv">
               <a href={contact.cv} download={contact.cvFileName}>
                 CV{" "}
