@@ -233,12 +233,15 @@
 .atelier .typing i:nth-child(2) { animation-delay: .15s; }
 .atelier .typing i:nth-child(3) { animation-delay: .3s; }
 @keyframes home-blink { 0%, 100% { opacity: .3; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-3px); } }
-.atelier .replies { margin: 34px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; width: 100%; }
-.atelier .reply { display: flex; flex-direction: column; align-items: center; text-align: center; min-width: 0; gap: 4px; text-decoration: none; padding: 8px 4px; color: var(--finale-fg); }
-.atelier .reply b { font-family: var(--display); font-weight: 400; font-style: italic; font-size: 1.5rem; line-height: 1.2; color: var(--finale-accent); text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 1px; text-underline-offset: 6px; transition: text-decoration-color .3s; }
-.atelier .reply small { font-size: .875rem; color: var(--finale-muted); transition: color .3s; overflow-wrap: anywhere; }
-.atelier .reply:hover b, .atelier .reply:focus-visible b { text-decoration-color: currentColor; }
-.atelier .reply:hover small { color: var(--finale-fg); }
+/* Réponses du visiteur : côté droit, comme des réponses suggérées */
+.atelier .replies { margin-top: 14px; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.atelier .replies .lbl { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--finale-muted); margin-right: 6px; }
+.atelier .chip { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 10px 20px; border-radius: 20px 20px 6px 20px; border: 1.5px solid var(--finale-accent); color: var(--finale-accent); font-size: clamp(1rem, 1.3vw, 1.125rem); font-weight: 500; line-height: 1.3; text-decoration: none; transition: background-color .3s, color .3s; }
+.atelier .chip small { margin-left: 6px; font-size: .875rem; font-weight: 400; color: var(--finale-fg); opacity: .8; }
+.atelier .chip svg { flex: none; transition: transform .3s var(--soft); }
+.atelier .chip:hover, .atelier .chip:focus-visible { background: var(--finale-accent); color: var(--finale-bg); }
+.atelier .chip:hover small, .atelier .chip:focus-visible small { color: inherit; }
+.atelier .chip:hover svg { transform: translateX(3px); }
 .atelier .chat [data-step] { opacity: 0; transform: translateY(12px) scale(.98); transform-origin: bottom left; }
 .atelier .chat [data-step].on { opacity: 1; transform: none; transition: opacity .45s var(--soft), transform .55s var(--soft); }
 .atelier .chat .replies[data-step] { transform-origin: bottom right; }
@@ -333,10 +336,10 @@
   .atelier .chat { margin-top: 20px; }
   .atelier .bubble { font-size: 1rem; padding: 10px 14px; }
   .atelier .who { width: 30px; height: 30px; font-size: .75rem; }
-  .atelier .replies { grid-template-columns: 1fr; }
-  .atelier .replies { gap: 6px; margin-top: 20px; }
-  .atelier .reply { padding: 6px 4px; }
-  .atelier .reply b { font-size: 1.3125rem; }
+  .atelier .replies { margin-top: 10px; }
+  .atelier .chip { min-height: 44px; padding: 9px 16px; }
+  .atelier .chip span { display: grid; text-align: right; }
+  .atelier .chip small { margin-left: 0; font-size: .8125rem; }
   .atelier .cloud { height: auto; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 6px; }
   .atelier .cloud-center { position: static; transform: none; width: 100%; margin-bottom: 18px; }
   .atelier .pos { position: static; transform: none; }

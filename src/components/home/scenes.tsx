@@ -149,6 +149,8 @@ export function PathScene() {
 
 export function ContactScene() {
   const who = <span className="who" aria-hidden="true">EN</span>;
+  const arrow = <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" /></svg>;
+  const download = <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1.5v8M3.5 6 7 9.5 10.5 6M2 12.5h10" stroke="currentColor" strokeWidth="1.5" /></svg>;
   return (
     <section className="scene dark contact" id="contact" data-chapter="contact" aria-labelledby="h-contact">
       <div className="contact-bg" aria-hidden="true"><Image src="/home/contact.jpg" alt="" fill sizes="100vw" /></div>
@@ -161,9 +163,10 @@ export function ContactScene() {
           <div className="msg" data-step>{who}<p className="bubble">Je vous réponds personnellement.</p></div>
           <div className="msg typing-row" hidden>{who}<p className="bubble typing" aria-label="Enzo écrit"><i /><i /><i /></p></div>
           <div className="replies" data-step>
-            <a className="reply" href={`mailto:${contact.email}`}><b>M’écrire</b><small>{contact.email}</small></a>
-            <a className="reply" href={contact.phoneHref}><b>M’appeler</b><small>{contact.phone}</small></a>
-            <a className="reply" href={contact.cv} download={contact.cvFileName}><b>Mon CV</b><small>PDF à télécharger</small></a>
+            <span className="lbl" aria-hidden="true">Vous</span>
+            <a className="chip" href={`mailto:${contact.email}`}><span>Je vous écris <small>{contact.email.toLowerCase()}</small></span>{arrow}</a>
+            <a className="chip" href={contact.phoneHref}><span>Je vous appelle <small>{contact.phone}</small></span>{arrow}</a>
+            <a className="chip" href={contact.cv} download={contact.cvFileName}>Je regarde votre CV {download}</a>
           </div>
         </div>
       </div>
