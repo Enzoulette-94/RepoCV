@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# capture locale, hors du projet
+/F24ADFD5-BA72-4FA3-9E4D-4FC8C0E1D4B2.PNG
