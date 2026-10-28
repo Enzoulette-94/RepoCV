@@ -343,7 +343,10 @@
   /* Texte compact pour laisser le visage dégagé */
   .atelier .hero h1 { font-size: clamp(3.25rem, 15vw, 4.5rem); }
   .atelier .hero .role { margin-top: 14px; font-size: 1.25rem; }
-  .atelier .hero .actions { margin-top: 22px; gap: 10px; flex-wrap: nowrap; }
+  /* Le nom reste à l’épaule ; boutons et aide descendent au-dessus des flèches */
+  .atelier .hero .inner { display: flex; flex-direction: column; gap: 0; min-height: calc(73svh - var(--nav-h) - 96px - env(safe-area-inset-top, 0px)); }
+  .atelier .hero .role { margin-bottom: 22px; }
+  .atelier .hero .actions { margin-top: auto; gap: 10px; flex-wrap: nowrap; }
   .atelier .hero .actions .btn { flex: 1 1 0; padding: 16px 10px; font-size: .9375rem; white-space: nowrap; }
   .atelier .hero .hint { margin-top: 16px; padding: 0; border: 0; background: none; font-size: .8125rem; }
   .atelier .hero .hint .keys { display: none; }
