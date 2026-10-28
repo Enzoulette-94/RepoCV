@@ -334,10 +334,11 @@
   .atelier .scene { align-content: start; padding-top: calc(var(--nav-h) + 20px + env(safe-area-inset-top, 0px)); padding-bottom: 120px; }
   .atelier .hero .inner, .atelier .project .inner, .atelier .path .inner { grid-template-columns: 1fr; gap: 28px; }
   .atelier .hero { align-content: end; }
-  .atelier .hero-photo { top: calc(var(--nav-h) - 24px + env(safe-area-inset-top, 0px)); bottom: auto; left: 0; width: auto; height: 56%; }
-  .atelier .hero-photo img { object-position: 50% 8%;
-    -webkit-mask-image: linear-gradient(180deg, #000 35%, transparent 96%); -webkit-mask-composite: source-over;
-    mask-image: linear-gradient(180deg, #000 35%, transparent 96%); mask-composite: add; }
+  /* Mobile : la photo glisse à droite et descend ; le texte passe sur sa partie en fondu */
+  .atelier .hero-photo { top: calc(var(--nav-h) - 44px + env(safe-area-inset-top, 0px)); bottom: auto; left: auto; width: 88%; height: 66%; }
+  .atelier .hero-photo img { object-position: 22% 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .45) 30%, #000 62%), linear-gradient(180deg, transparent 0%, #000 14%, #000 55%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .45) 30%, #000 62%), linear-gradient(180deg, transparent 0%, #000 14%, #000 55%, transparent 100%); }
   /* Texte compact pour laisser le visage dégagé */
   .atelier .hero h1 { font-size: clamp(3.25rem, 15vw, 4.5rem); }
   .atelier .hero .role { margin-top: 14px; font-size: 1.25rem; }
