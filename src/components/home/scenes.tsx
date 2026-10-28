@@ -21,7 +21,7 @@ export function HeroScene() {
         <p className="role" data-in style={vars({ "--d": ".3s" })}>Développeur web <span>Full Stack</span></p>
         <div className="actions" data-in style={vars({ "--d": ".4s" })}>
           <a className="btn btn-primary btn-lg" href="#projets">Voir mes projets <span aria-hidden="true">→</span></a>
-          <a className="btn btn-outline btn-lg" href={contact.cv} download={contact.cvFileName}>Télécharger mon CV <span aria-hidden="true">↓</span></a>
+          <a className="btn btn-outline btn-lg" href={contact.cv} download={contact.cvFileName} data-cv-preview>Voir mon CV <span aria-hidden="true">→</span></a>
         </div>
         <p className="hint" data-in style={vars({ "--d": ".6s" })}>
           <span className="keys" aria-hidden="true"><kbd>↓</kbd><kbd>↑</kbd></span>
@@ -149,7 +149,6 @@ export function PathScene() {
 export function ContactScene() {
   const who = <span className="who" aria-hidden="true">EN</span>;
   const arrow = <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" /></svg>;
-  const download = <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1.5v8M3.5 6 7 9.5 10.5 6M2 12.5h10" stroke="currentColor" strokeWidth="1.5" /></svg>;
   return (
     <section className="scene dark contact" id="contact" data-chapter="contact" aria-labelledby="h-contact">
       <div className="contact-bg" aria-hidden="true"><Image src="/home/contact.jpg" alt="" fill sizes="100vw" /></div>
@@ -169,7 +168,7 @@ export function ContactScene() {
             <span className="lbl" aria-hidden="true">Vous</span>
             <a className="chip" href={`mailto:${contact.email}`}>Je vous écris par mail {arrow}</a>
             <a className="chip" href={contact.phoneHref}>Je vous appelle {arrow}</a>
-            <a className="chip" href={contact.cv} download={contact.cvFileName}>Je regarde votre CV {download}</a>
+            <a className="chip" href={contact.cv} download={contact.cvFileName} data-cv-preview>Je regarde votre CV {arrow}</a>
           </div>
         </div>
       </div>

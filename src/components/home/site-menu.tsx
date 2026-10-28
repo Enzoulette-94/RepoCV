@@ -1,4 +1,5 @@
 import { contact } from "@/data/home";
+import { CvPreview } from "./cv-preview";
 
 export const CHAPTERS = [
   { id: "accueil", label: "Accueil" },
@@ -32,13 +33,14 @@ export function SiteMenu({ base = "", current }: { base?: "" | "/"; current?: st
           ))}
           <li className="sep" aria-hidden="true" />
           <li className="cv">
-            <a href={contact.cv} download={contact.cvFileName}>
+            <a href={contact.cv} download={contact.cvFileName} data-cv-preview>
               CV{" "}
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1.5v8M3.5 6 7 9.5 10.5 6M2 12.5h10" stroke="currentColor" strokeWidth="1.5" /></svg>
             </a>
           </li>
         </ul>
       </nav>
+      <CvPreview />
     </header>
   );
 }

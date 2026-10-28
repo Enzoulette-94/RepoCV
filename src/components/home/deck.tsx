@@ -145,6 +145,8 @@ export function Deck({ children }: { children: ReactNode }) {
       go(dir > 0 && cur === scenes.length - 1 ? 0 : cur + dir);
     };
 
+    // Une fenêtre ouverte (aperçu du CV, capture) garde la molette, le clavier et le doigt pour elle
+    const modal = () => !!document.querySelector("dialog[open]");
     const ctrl = new AbortController();
     const on = { signal: ctrl.signal };
 
@@ -174,6 +176,7 @@ export function Deck({ children }: { children: ReactNode }) {
     let wheelSum = 0;
     let lastWheel = 0;
     addEventListener("wheel", (e) => {
+      if (modal()) return;
       e.preventDefault();
       const now = performance.now();
       if (now - lastWheel > 400) wheelSum = 0;
@@ -183,6 +186,7 @@ export function Deck({ children }: { children: ReactNode }) {
     }, { passive: false, signal: ctrl.signal });
 
     addEventListener("keydown", (e) => {
+      if (modal()) return;
       if (["ArrowDown", "PageDown", "ArrowRight"].includes(e.key)) { e.preventDefault(); nav(1); }
       if (["ArrowUp", "PageUp", "ArrowLeft"].includes(e.key)) { e.preventDefault(); nav(-1); }
     }, on);
@@ -190,10 +194,10 @@ export function Deck({ children }: { children: ReactNode }) {
     // Glissement : vertical pour changer de page, horizontal entre projets ou loisirs
     let ty: number | null = null;
     let tx: number | null = null;
-    addEventListener("touchmove", (e) => e.preventDefault(), { passive: false, signal: ctrl.signal });
+    addEventListener("touchmove", (e) => { if (!modal()) e.preventDefault(); }, { passive: false, signal: ctrl.signal });
     addEventListener("touchstart", (e) => { ty = e.touches[0].clientY; tx = e.touches[0].clientX; }, { passive: true, signal: ctrl.signal });
     addEventListener("touchend", (e) => {
-      if (ty === null || tx === null) return;
+      if (ty === null || tx === null || modal()) return;
       const dy = ty - e.changedTouches[0].clientY;
       const dx = tx - e.changedTouches[0].clientX;
       if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) && LATERAL.includes(scenes[cur].dataset.chapter ?? "")) nav(dx > 0 ? 1 : -1);

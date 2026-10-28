@@ -476,6 +476,25 @@
   .atelier .wall .t em { top: -6px; right: -4px; padding: 3px 4px; font-size: .5625rem; }
   .atelier .wall .ic, .atelier .wall .mono { width: 18px; height: 18px; font-size: .625rem; }
 }
+/* Aperçu du CV : la feuille sur un fond sombre, le téléchargement en haut */
+.atelier .cv-view { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0 0 48px; border: 0; background: transparent; color: var(--finale-fg); overflow-y: auto; overscroll-behavior: contain; }
+.atelier .cv-view::backdrop { background: color-mix(in srgb, var(--finale-bg) 94%, transparent); backdrop-filter: blur(6px); }
+.atelier .cv-bar { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; gap: 12px; padding: max(16px, env(safe-area-inset-top, 0px)) max(24px, calc((100% - 760px) / 2)) 16px; background: linear-gradient(color-mix(in srgb, var(--finale-bg) 96%, transparent) 70%, transparent); }
+.atelier .cv-bar p { margin-right: auto; font: italic 400 1.5rem/1.2 var(--display); }
+.atelier .cv-bar p span { margin-left: 10px; font: 400 .8125rem var(--body); font-style: normal; color: var(--finale-muted); }
+.atelier .cv-bar .btn-primary { background: var(--finale-accent); border-color: var(--finale-accent); color: var(--finale-bg); }
+.atelier .cv-close { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--finale-line); display: grid; place-items: center; font-size: 1.625rem; line-height: 1; transition: border-color .3s, color .3s; }
+.atelier .cv-close:hover { border-color: var(--finale-accent); color: var(--finale-accent); }
+.atelier .cv-paper { width: min(100% - 48px, 760px); margin: 8px auto 0; border-radius: 6px; overflow: hidden; background: #fff; box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .6); animation: cv-in .45s var(--soft); }
+.atelier .cv-paper img { display: block; width: 100%; height: auto; }
+@keyframes cv-in { from { opacity: 0; transform: translate3d(0, 24px, 0); } }
+@media (max-width: 900px) {
+  .atelier .cv-bar { padding-inline: 16px; }
+  .atelier .cv-bar p { font-size: 1.25rem; }
+  .atelier .cv-bar p span { display: none; }
+  .atelier .cv-paper { width: calc(100% - 24px); }
+}
+@media (prefers-reduced-motion: reduce) { .atelier .cv-paper { animation: none; } }
 @media (prefers-reduced-motion: reduce) {
   .atelier .tiles li.open p { animation: none; }
   .atelier .scene [data-in] { opacity: 1; transform: none; }
