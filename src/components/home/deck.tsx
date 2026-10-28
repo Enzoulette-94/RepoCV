@@ -59,7 +59,7 @@ export function Deck({ children }: { children: ReactNode }) {
       const s = scenes[i];
       count.innerHTML = `<b>${pad(i + 1)}</b> / ${pad(scenes.length)}`;
       prevBtn.disabled = i === 0;
-      nextBtn.disabled = i === scenes.length - 1;
+      nextBtn.setAttribute("aria-label", i === scenes.length - 1 ? "Revenir au début" : "Page suivante");
       navLinks.forEach((a) => a.classList.toggle("current", a.dataset.chapter === s.dataset.chapter));
       root!.classList.toggle("tone-dark", s.classList.contains("dark"));
       if (location.hash.slice(1) !== s.id) history.replaceState(null, "", `#${s.id}`);
@@ -145,7 +145,11 @@ export function Deck({ children }: { children: ReactNode }) {
         }, 900);
       }
     }
-    const nav = (dir: number) => { if (!busy) go(cur + dir); };
+    // Après la dernière page, on repart au début
+    const nav = (dir: number) => {
+      if (busy) return;
+      go(dir > 0 && cur === scenes.length - 1 ? 0 : cur + dir);
+    };
 
     const ctrl = new AbortController();
     const on = { signal: ctrl.signal };
