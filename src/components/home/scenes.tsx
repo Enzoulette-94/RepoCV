@@ -23,7 +23,6 @@ export function HeroScene() {
           <a className="btn btn-primary btn-lg" href="#projets">Voir mes projets <span aria-hidden="true">→</span></a>
           <a className="btn btn-outline btn-lg" href={contact.cv} download={contact.cvFileName}>Télécharger mon CV <span aria-hidden="true">↓</span></a>
         </div>
-        <p className="status" data-in style={vars({ "--d": ".48s" })}><span className="dot" aria-hidden="true" />Freelance, et ouvert à un CDI</p>
         <p className="hint" data-in style={vars({ "--d": ".6s" })}>
           <span className="keys" aria-hidden="true"><kbd>↓</kbd><kbd>↑</kbd></span>
           <span className="hint-desk">Faites défiler ou utilisez les flèches pour changer de page</span>

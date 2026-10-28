@@ -128,8 +128,6 @@
 .atelier .role { margin-top: 28px; font-size: clamp(1.375rem, 2.6vw, 2rem); font-weight: 500; letter-spacing: -0.01em; }
 .atelier .role span { color: var(--accent); }
 .atelier .hero .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px; }
-.atelier .hero .status { margin-top: 26px; display: flex; align-items: center; gap: 10px; font-size: 1rem; color: var(--muted); }
-.atelier .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 0 4px color-mix(in srgb, var(--sage) 25%, transparent); flex: none; }
 .atelier .hint { margin-top: 44px; display: inline-flex; align-items: center; gap: 12px; font-size: .875rem; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 9px 16px 9px 10px; background: color-mix(in srgb, var(--bg) 70%, transparent); }
 .atelier .hint .keys { display: inline-flex; gap: 4px; }
 .atelier .hint kbd { font: 600 .8125rem/1 var(--body); width: 26px; height: 26px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--fg); background: var(--bg); }
