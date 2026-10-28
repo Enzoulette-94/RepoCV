@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { projects } from "@/data/projects";
 import { codingAi, projectTools, toolGroups, tools, type ToolId } from "@/data/stacks";
 import { ToolIcon } from "./tool-icon";
@@ -14,6 +14,25 @@ const usage = (id: ToolId) => Object.values(projectTools).filter((p) => p.tools.
  */
 export function StacksScene() {
   const [slug, setSlug] = useState<string | null>(null);
+  const row = useRef<HTMLDivElement>(null);
+  const thumb = useRef<HTMLSpanElement>(null);
+
+  // Petite barre sous la rangée de projets : montre qu'elle défile et où l'on en est
+  useEffect(() => {
+    const r = row.current;
+    const t = thumb.current;
+    if (!r || !t) return;
+    const paint = () => {
+      const ratio = r.clientWidth / r.scrollWidth;
+      t.parentElement!.hidden = ratio >= 1;
+      t.style.width = `${ratio * 100}%`;
+      t.style.transform = `translateX(${(r.scrollLeft / r.clientWidth) * 100}%)`;
+    };
+    paint();
+    r.addEventListener("scroll", paint, { passive: true });
+    addEventListener("resize", paint);
+    return () => { r.removeEventListener("scroll", paint); removeEventListener("resize", paint); };
+  }, []);
   const current = slug ? projectTools[slug] : null;
   const title = slug ? projects.find((p) => p.slug === slug)?.title : null;
   const isOn = (id: ToolId) => !current || codingAi.includes(id) || current.tools.includes(id);
@@ -34,15 +53,18 @@ export function StacksScene() {
       <div className="inner">
         <div className="side">
           <p className="eyebrow" data-in>Stacks</p>
-          <h2 id="h-stacks" tabIndex={-1} data-in style={vars({ "--d": ".06s" })}>Avec quoi <em>je travaille</em></h2>
+          <h2 id="h-stacks" tabIndex={-1} data-in style={vars({ "--d": ".06s" })}>Avec qui <em>je travaille</em></h2>
           <p className="lead" data-in style={vars({ "--d": ".12s" })}>Les outils de chaque projet, et les IA qui m’accompagnent quand je code.</p>
-          <div className="projs" role="group" aria-label="Voir les outils d’un projet" data-in style={vars({ "--d": ".18s" })}>
+          <div className="projs-wrap" data-in style={vars({ "--d": ".18s" })}>
+          <div className="projs" ref={row} data-scroll-x role="group" aria-label="Voir les outils d’un projet">
             <button type="button" aria-pressed={!slug} onClick={() => setSlug(null)}>Tous</button>
             {projects.map((p) => (
               <button key={p.slug} type="button" aria-pressed={slug === p.slug} onClick={() => setSlug(p.slug)}>
                 {projectTools[p.slug].short}
               </button>
             ))}
+          </div>
+          <div className="projs-bar" aria-hidden="true"><span ref={thumb} /></div>
           </div>
           <p className="sr-only" aria-live="polite">
             {current ? `${title} : ${[...codingAi, ...current.tools].map((id) => tools[id].label).join(", ")}.` : "Tous les outils."}

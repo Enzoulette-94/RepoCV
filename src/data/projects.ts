@@ -18,7 +18,7 @@ export type Project = {
   /** Fiche courte affichée sur l'accueil */
   sheet: {
     kind: string;
-    state: "En ligne" | "Bientôt en ligne" | "En production" | "Formation";
+    state: "En ligne" | "Bientôt en ligne" | "En pré-production" | "Formation";
     /** Texte de la barre d'adresse sur la capture */
     address: string;
     pitch: string;
@@ -31,6 +31,10 @@ export type Project = {
     darkShot?: boolean;
   };
 };
+
+/** Classe de couleur de l'état : vert en ligne, orange en pré-production */
+export const stateClass = (state: Project["sheet"]["state"]) =>
+  state === "En ligne" ? "online" : state === "En pré-production" ? "pre" : undefined;
 
 export const projects: Project[] = [
   {
@@ -185,8 +189,8 @@ export const projects: Project[] = [
     ],
     sheet: {
       kind: "Appli perso",
-      state: "En production",
-      address: "gainandglory · en production",
+      state: "En pré-production",
+      address: "gainandglory · en pré-production",
       pitch: "Une appli de suivi sportif où chaque séance rapporte de l’XP.",
       who: "Mes amis et moi : on s’entraîne beaucoup et on aime se tirer la bourre.",
       need: "Suivre nos séances de muscu et de course, et rester motivés ensemble.",
@@ -222,8 +226,8 @@ export const projects: Project[] = [
     ],
     sheet: {
       kind: "Projet en équipe",
-      state: "En production",
-      address: "rubberduck · en production",
+      state: "En pré-production",
+      address: "rubberduck · en pré-production",
       pitch: "Une IA qui aide à trouver la solution au lieu de la donner.",
       who: "Les développeurs bloqués sur un bug. On le construit à plusieurs.",
       need: "Comprendre son problème en le formulant, comme quand on l’explique à un canard en plastique.",
