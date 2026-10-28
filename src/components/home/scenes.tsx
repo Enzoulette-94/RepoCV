@@ -157,6 +157,11 @@ export function ContactScene() {
       <div className="inner">
         <p className="eyebrow" data-in>Contact</p>
         <h2 className="big" id="h-contact" tabIndex={-1} data-in style={vars({ "--d": ".06s" })}>Écrivons la suite <em>ensemble.</em></h2>
+        <p className="coords" data-in style={vars({ "--d": ".12s" })}>
+          <a href={`mailto:${contact.email}`}>{contact.email.toLowerCase()}</a>
+          <span aria-hidden="true">·</span>
+          <a href={contact.phoneHref}>{contact.phone}</a>
+        </p>
         <div className="chat" aria-live="polite">
           <div className="msg first" data-step>{who}<p className="bubble">Salut&nbsp;!</p></div>
           <div className="msg" data-step>{who}<p className="bubble">Un projet de site, un poste à pourvoir ou juste une question&nbsp;?</p></div>
@@ -164,8 +169,8 @@ export function ContactScene() {
           <div className="msg typing-row" hidden>{who}<p className="bubble typing" aria-label="Enzo écrit"><i /><i /><i /></p></div>
           <div className="replies" data-step>
             <span className="lbl" aria-hidden="true">Vous</span>
-            <a className="chip" href={`mailto:${contact.email}`}><span>Je vous écris <small>{contact.email.toLowerCase()}</small></span>{arrow}</a>
-            <a className="chip" href={contact.phoneHref}><span>Je vous appelle <small>{contact.phone}</small></span>{arrow}</a>
+            <a className="chip" href={`mailto:${contact.email}`}>Je vous écris par mail {arrow}</a>
+            <a className="chip" href={contact.phoneHref}>Je vous appelle {arrow}</a>
             <a className="chip" href={contact.cv} download={contact.cvFileName}>Je regarde votre CV {download}</a>
           </div>
         </div>
