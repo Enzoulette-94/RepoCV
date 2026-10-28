@@ -13,11 +13,11 @@ const CHAPTERS = [
 ];
 // Mot affiché sur le rideau entre deux chapitres
 const CURTAIN_LABEL: Record<string, string> = {
-  accueil: "Bonjour",
-  projets: "Projets",
-  parcours: "Parcours",
+  accueil: "Me revoilà",
+  projets: "Bienvenue dans mon atelier",
+  parcours: "Le chemin que j’ai fait",
   contact: "Contact",
-  infos: "Ce que j’aime",
+  infos: "Bienvenue dans mon monde",
 };
 // Chapitres où l'on glisse latéralement d'une page à l'autre
 const LATERAL = ["projets", "infos"];
