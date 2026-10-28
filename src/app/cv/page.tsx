@@ -114,8 +114,8 @@ export default function CvPage() {
               </h2>
               <div className="mt-2 space-y-2 text-xs leading-relaxed text-neutral-600">
                 <p>
-                  Développeur full-stack en reconversion, actuellement en
-                  formation intensive à The Hacking Project, où je conçois des
+                  Développeur full-stack en reconversion, formé à The Hacking
+                  Project, je conçois des
                   applications web complètes avec JavaScript, React, Next.js,
                   Node.js et bases de données.
                 </p>

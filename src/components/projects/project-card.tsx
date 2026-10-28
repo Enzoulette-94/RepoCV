@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Hammer } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/data/projects";
 import { Lightbox } from "./lightbox";
@@ -57,12 +57,23 @@ export function ProjectCard({
             <h2 className="text-xl font-semibold tracking-tight text-foreground transition-opacity group-hover/title:opacity-70">
               {project.title}
             </h2>
-            {project.status === "in-progress" && (
-              <span className="inline-flex items-center rounded-full border border-amber-500/30 bg-amber-500/10 px-2.5 py-0.5 text-xs font-medium text-amber-600 dark:text-amber-400">
-                En cours
-              </span>
-            )}
           </Link>
+          {project.inProduction ? (
+            <span className="mt-1 inline-flex w-fit items-center gap-1 text-xs font-medium text-muted-foreground">
+              <Hammer className="h-3 w-3" />
+              En production
+            </span>
+          ) : project.demo ? (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 inline-flex w-fit items-center gap-1 text-xs font-medium text-primary hover:underline"
+            >
+              {project.demo.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
+              <ExternalLink className="h-3 w-3" />
+            </a>
+          ) : null}
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             {project.description}
           </p>
@@ -92,7 +103,7 @@ export function ProjectCard({
                 <Github className="h-4 w-4" />
               </a>
             )}
-            {project.demo && (
+            {project.demo && !project.inProduction && (
               <a
                 href={project.demo}
                 target="_blank"

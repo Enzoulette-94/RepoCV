@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, Github, Clock, User } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Clock, User, Hammer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { projects } from "@/data/projects";
@@ -96,14 +96,19 @@ export default async function ProjectPage({ params }: Params) {
               </a>
             </Button>
           )}
-          {project.demo && (
+          {project.inProduction ? (
+            <Button disabled>
+              <Hammer className="mr-2 h-4 w-4" />
+              En production
+            </Button>
+          ) : project.demo ? (
             <Button asChild>
               <a href={project.demo} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="mr-2 h-4 w-4" />
                 Voir le site
               </a>
             </Button>
-          )}
+          ) : null}
         </div>
 
         {/* Screenshots */}

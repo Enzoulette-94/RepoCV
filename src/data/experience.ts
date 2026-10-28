@@ -9,6 +9,14 @@ export type TimelineItem = {
 
 export const timeline: TimelineItem[] = [
   {
+    title: "Développeur web freelance",
+    company: "Indépendant",
+    period: "Avril 2026 — Aujourd'hui",
+    description:
+      "Conception et développement de sites web pour des commerces et des associations, du recueil des besoins à la mise en ligne : Etcetera Studio (institut de beauté), Boulangerie Panem (e-commerce click & collect), A.S.S.G (association sportive).",
+    type: "work",
+  },
+  {
     title: "Assistant d'éducation",
     company: "Lycée Arago & Lycée Buffon, Paris",
     period: "Sept 2020 — Août 2025",

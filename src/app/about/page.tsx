@@ -144,8 +144,8 @@ export default function AboutPage() {
               </h2>
               <div className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
                 <p>
-                  Développeur full-stack en reconversion, actuellement en
-                  formation intensive à The Hacking Project, où je conçois des
+                  Développeur full-stack en reconversion, formé à The Hacking
+                  Project, je conçois des
                   applications web complètes avec JavaScript, React, Next.js,
                   Node.js et bases de données.
                 </p>

@@ -88,8 +88,8 @@ export function AboutSection() {
               <h3 className="text-xl font-bold uppercase tracking-wider text-primary">Profil</h3>
               <div className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
                 <p>
-                  Développeur full-stack en reconversion, actuellement en formation intensive à The Hacking Project,
-                  où je conçois des applications web complètes avec JavaScript, React, Next.js, Node.js et bases de données.
+                  Développeur full-stack en reconversion, formé à The Hacking Project,
+                  je conçois des applications web complètes avec JavaScript, React, Next.js, Node.js et bases de données.
                 </p>
                 <p>
                   Issu d&apos;un parcours en éducation et en coaching sportif, j&apos;ai appris à évoluer dans des

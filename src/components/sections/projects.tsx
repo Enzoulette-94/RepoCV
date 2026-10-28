@@ -6,11 +6,6 @@ import { projects } from "@/data/projects";
 import { ProjectCard } from "@/components/projects/project-card";
 
 export function ProjectsSection() {
-  const completed = [
-    ...projects.filter((p) => p.status !== "in-progress"),
-    ...projects.filter((p) => p.status === "in-progress"),
-  ];
-
   return (
     <section id="projects" className="scroll-mt-16 py-24">
       <div className="container mx-auto px-4">
@@ -26,7 +21,7 @@ export function ProjectsSection() {
 
         <div className="mx-auto mt-14 flex max-w-4xl flex-col divide-y divide-border">
           <AnimatePresence mode="popLayout">
-            {completed.map((project, i) => (
+            {projects.map((project, i) => (
               <ProjectCard key={project.slug} project={project} index={i} />
             ))}
           </AnimatePresence>

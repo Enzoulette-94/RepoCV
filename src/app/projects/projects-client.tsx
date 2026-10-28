@@ -6,9 +6,6 @@ import { ProjectCard } from "@/components/projects/project-card";
 import { NavArrow } from "@/components/nav-arrow";
 
 export function ProjectsClient() {
-  const completed = projects.filter((p) => p.status !== "in-progress");
-  const inProgress = projects.filter((p) => p.status === "in-progress");
-
   return (
     <>
       <NavArrow href="/about" direction="left" label="Retour au CV" />
@@ -24,7 +21,7 @@ export function ProjectsClient() {
 
         <div className="mx-auto mt-14 flex max-w-4xl flex-col divide-y divide-border">
           <AnimatePresence mode="popLayout">
-            {completed.map((project, i) => (
+            {projects.map((project, i) => (
               <ProjectCard
                 key={project.slug}
                 project={project}
