@@ -4,6 +4,8 @@ export const contact = {
   phoneHref: "tel:+33621847957",
   cv: "/cv.pdf",
   cvFileName: "EnzoNatali2026-DevFullStack.pdf",
+  /** Aperçu du CV : changer le nom à chaque nouvelle version pour ne pas servir l'ancienne image en cache */
+  cvPreview: "/cv-preview-2026-09.png",
 };
 
 export type PathStep = {
