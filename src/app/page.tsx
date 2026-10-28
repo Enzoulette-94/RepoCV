@@ -8,11 +8,13 @@ import {
   ProjectScenes,
   ProjectsIndexScene,
 } from "@/components/home/scenes";
+import { StacksScene } from "@/components/home/stacks";
 
 export default function Home() {
   return (
     <Deck>
       <HeroScene />
+      <StacksScene />
       <ProjectsIndexScene />
       <ProjectScenes />
       <PathScene />

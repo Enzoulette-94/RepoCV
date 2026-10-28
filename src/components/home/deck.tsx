@@ -6,6 +6,7 @@ import "./home.css";
 
 const CHAPTERS = [
   { id: "accueil", label: "Accueil" },
+  { id: "stacks", label: "Stacks" },
   { id: "projets", label: "Projets" },
   { id: "parcours", label: "Parcours" },
   { id: "contact", label: "Contact" },
@@ -14,6 +15,7 @@ const CHAPTERS = [
 // Mot affiché sur le rideau entre deux chapitres
 const CURTAIN_LABEL: Record<string, string> = {
   accueil: "Me revoilà",
+  stacks: "Avec quoi je travaille",
   projets: "Bienvenue dans mon atelier",
   parcours: "Le chemin que j’ai fait",
   contact: "Contact",

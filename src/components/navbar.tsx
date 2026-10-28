@@ -18,6 +18,7 @@ import { contact } from "@/data/home";
 // Les sections vivent sur l'accueil : chaque lien ouvre la bonne page de l'accueil
 const navLinks = [
   { href: "/", label: "Accueil" },
+  { href: "/#stacks", label: "Stacks" },
   { href: "/#projets", label: "Projets" },
   { href: "/#parcours", label: "Parcours" },
   { href: "/#contact", label: "Contact" },
