@@ -212,8 +212,7 @@
 .atelier .scene .line li { opacity: 0; transform: translateY(14px); }
 .atelier .scene.shown .line li { opacity: 1; transform: none; transition: opacity .6s var(--soft) var(--d), transform .7s var(--soft) var(--d); }
 /* Contact : un mot personnel, pas une fiche */
-.atelier .contact .eyebrow { color: var(--finale-muted); }
-.atelier .big { font-family: var(--display); font-size: clamp(1.6rem, 5.4vw, 4.75rem); line-height: 1.05; font-weight: 350; white-space: nowrap; margin-top: 18px; }
+.atelier .big { font-family: var(--display); font-size: clamp(1.6rem, 5.4vw, 4.75rem); line-height: 1.05; font-weight: 350; white-space: nowrap; margin: 0; }
 .atelier .big em { color: var(--finale-accent); font-style: italic; }
 .atelier .contact-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; opacity: .22; }
 .atelier .contact-bg img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.35); filter: blur(5px);

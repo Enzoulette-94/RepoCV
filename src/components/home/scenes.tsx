@@ -154,7 +154,6 @@ export function ContactScene() {
     <section className="scene dark contact" id="contact" data-chapter="contact" aria-labelledby="h-contact">
       <div className="contact-bg" aria-hidden="true"><Image src="/home/contact.jpg" alt="" fill sizes="100vw" /></div>
       <div className="inner">
-        <p className="eyebrow" data-in>Contact</p>
         <h2 className="big" id="h-contact" tabIndex={-1} data-in style={vars({ "--d": ".06s" })}>Écrivons la suite <em>ensemble.</em></h2>
         <p className="coords" data-in style={vars({ "--d": ".12s" })}>
           <a href={`mailto:${contact.email}`}>{contact.email.toLowerCase()}</a>
