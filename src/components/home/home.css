@@ -195,9 +195,10 @@
 .atelier .path .head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
 .atelier .path h2 { font-size: clamp(2.25rem, 5vw, 3.75rem); line-height: 1.05; margin-top: 14px; }
 .atelier .path .head > p { color: var(--muted); max-width: 40ch; }
-.atelier .line { --axis-y: 44px; position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
-.atelier .line::before { content: ""; position: absolute; left: 0; right: 0; top: var(--axis-y); height: 2px; background: var(--line); }
-.atelier .line::after { content: ""; position: absolute; left: 0; right: 0; top: var(--axis-y); height: 2px; background: linear-gradient(90deg, var(--line), var(--accent)); transform-origin: left; }
+.atelier .line { --axis-y: 44px; --gap: 24px; --end: calc((100% - 5 * var(--gap)) / 6 - 7px); position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+/* La ligne s’arrête sur le point « Aujourd’hui » */
+.atelier .line::before { content: ""; position: absolute; left: 0; right: var(--end); top: var(--axis-y); height: 2px; background: var(--line); }
+.atelier .line::after { content: ""; position: absolute; left: 0; right: var(--end); top: var(--axis-y); height: 2px; background: linear-gradient(90deg, var(--line), var(--accent)); transform-origin: left; }
 .atelier .line li { position: relative; min-width: 0; }
 .atelier .line .year { display: block; height: 32px; line-height: 32px; font-family: var(--display); font-size: 1.25rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .atelier .line .pt { display: block; position: relative; z-index: 1; width: 14px; height: 14px; margin: 6px 0 22px; border-radius: 50%; background: var(--bg-alt); border: 2px solid var(--accent); }
@@ -326,6 +327,7 @@
   .atelier .path .head > p { display: none; }
   .atelier .line { grid-template-columns: 1fr; gap: 18px; padding-left: 30px; }
   .atelier .line::before, .atelier .line::after { left: 6px; right: auto; top: 6px; bottom: 6px; width: 2px; height: auto; }
+  .atelier .line li.now::after { content: ""; position: absolute; z-index: 1; left: -26px; width: 6px; top: 18px; bottom: -8px; background: var(--bg-alt); }
   .atelier .line::after { background: linear-gradient(180deg, var(--line), var(--accent)); transform-origin: top; }
   .atelier .scene .line::after { transform: scaleY(0); }
   .atelier .line .pt { position: absolute; left: -30px; top: 4px; margin: 0; }
