@@ -126,11 +126,11 @@
 .atelier .scene.shown [data-in="zoom"] { transition: opacity 1.8s var(--soft), transform 2.6s var(--soft); }
 .atelier .hero .inner { position: relative; z-index: 1; }
 /* Photo : noir et blanc, elle se dissout vers le nom et vers le bas ; ses blancs prennent la couleur du fond */
-.atelier .hero-photo { position: absolute; top: 0; right: 0; bottom: 0; width: 58%; pointer-events: none; animation: home-photo-in 1.6s var(--soft) both; }
-.atelier .hero-photo img { object-fit: cover; object-position: 50% 18%; filter: grayscale(1) sepia(.18) contrast(1.05); mix-blend-mode: multiply;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 6%, rgba(0, 0, 0, .35) 26%, #000 58%), linear-gradient(180deg, #000 55%, transparent 100%);
+.atelier .hero-photo { position: absolute; top: 9%; right: 4%; bottom: 0; width: 48%; pointer-events: none; animation: home-photo-in 1.6s var(--soft) both; }
+.atelier .hero-photo img { object-fit: cover; object-position: 50% 12%; filter: grayscale(1) sepia(.18) contrast(1.05); mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 6%, rgba(0, 0, 0, .35) 26%, #000 52%, #000 78%, transparent 99%), linear-gradient(180deg, transparent 0%, #000 12%, #000 58%, transparent 100%);
   -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(90deg, transparent 0%, transparent 6%, rgba(0, 0, 0, .35) 26%, #000 58%), linear-gradient(180deg, #000 55%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, transparent 6%, rgba(0, 0, 0, .35) 26%, #000 52%, #000 78%, transparent 99%), linear-gradient(180deg, transparent 0%, #000 12%, #000 58%, transparent 100%);
   mask-composite: intersect; }
 .dark .atelier .hero-photo img { mix-blend-mode: normal; filter: grayscale(1) sepia(.18) contrast(1.04) brightness(.78); }
 @keyframes home-photo-in { from { opacity: 0; } }
@@ -333,19 +333,21 @@
   .atelier .pager .count { writing-mode: horizontal-tb; }
   .atelier .scene { align-content: start; padding-top: calc(var(--nav-h) + 20px + env(safe-area-inset-top, 0px)); padding-bottom: 120px; }
   .atelier .hero .inner, .atelier .project .inner, .atelier .path .inner { grid-template-columns: 1fr; gap: 28px; }
-  /* Le nom démarre à hauteur d’épaule, la photo faisant 66 % de la hauteur */
-  .atelier .hero { align-content: start; padding-top: calc(var(--nav-h) - 44px + min(27svh, 51vw) + env(safe-area-inset-top, 0px)); }
-  /* Mobile : la photo glisse à droite et descend ; le texte passe sur sa partie en fondu */
-  /* Hauteur plafonnée par la largeur : sur un écran très haut, la photo ne grossit plus au point de couper la tête */
-  .atelier .hero-photo { top: calc(var(--nav-h) - 44px + env(safe-area-inset-top, 0px)); bottom: auto; left: auto; width: 88%; height: min(66%, 125vw); }
-  .atelier .hero-photo img { object-position: 30% 0;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .45) 30%, #000 62%), linear-gradient(180deg, transparent 0%, #000 14%, #000 48%, rgba(0, 0, 0, .4) 75%, transparent 100%);
-    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .45) 30%, #000 62%), linear-gradient(180deg, transparent 0%, #000 14%, #000 48%, rgba(0, 0, 0, .4) 75%, transparent 100%); }
+  /* Le nom démarre à hauteur d’épaule */
+  /* --ph : hauteur de la photo ; elle s'arrête un peu avant le bas et se fond dans le fond */
+  .atelier .hero { --ph: calc(80svh - var(--nav-h) + 44px); align-content: start; padding-top: calc(var(--nav-h) - 44px + var(--ph) * .36 + env(safe-area-inset-top, 0px)); }
+  /* Cadrée pour garder le visage à droite et la tête entière, quelle que soit la hauteur du téléphone */
+  .atelier .hero-photo { top: calc(var(--nav-h) - 44px + env(safe-area-inset-top, 0px)); bottom: auto; left: 0; right: 0; width: auto; height: var(--ph); }
+  /* L'image fait la hauteur de son cadre (carrée) : on place le visage (52 % de l'image) à 64 % de la largeur de l'écran */
+  .atelier .hero-photo img { object-position: calc(64vw - var(--ph) * .52) 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .3) 38%, #000 72%), linear-gradient(180deg, transparent 0%, #000 12%, #000 58%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .3) 38%, #000 72%), linear-gradient(180deg, transparent 0%, #000 12%, #000 58%, transparent 100%); }
+  .atelier .hero h1, .atelier .hero .role, .atelier .hero .hint { text-shadow: 0 1px 14px var(--bg), 0 0 2px var(--bg); }
   /* Texte compact pour laisser le visage dégagé */
   .atelier .hero h1 { font-size: clamp(3.25rem, 15vw, 4.5rem); }
   .atelier .hero .role { margin-top: 14px; font-size: 1.25rem; }
   /* Le nom reste à l’épaule ; boutons et aide descendent au-dessus des flèches */
-  .atelier .hero .inner { display: flex; flex-direction: column; gap: 0; min-height: calc(100svh - var(--nav-h) + 44px - min(27svh, 51vw) - 140px - env(safe-area-inset-top, 0px)); }
+  .atelier .hero .inner { display: flex; flex-direction: column; gap: 0; min-height: calc(100svh - var(--nav-h) + 44px - var(--ph) * .36 - 140px - env(safe-area-inset-top, 0px)); }
   .atelier .hero .role { margin-bottom: 22px; }
   .atelier .hero .actions { margin-top: auto; gap: 10px; flex-wrap: nowrap; }
   .atelier .hero .actions .btn { flex: 1 1 0; padding: 16px 10px; font-size: .9375rem; white-space: nowrap; }
@@ -450,6 +452,9 @@
   .atelier .plist .live { padding-block: 12px; }
 }
 @media (max-width: 900px) and (max-height: 760px) {
+  .atelier .hero { padding-top: calc(var(--nav-h) - 44px + var(--ph) * .3 + env(safe-area-inset-top, 0px)); }
+  .atelier .hero .inner { min-height: calc(100svh - var(--nav-h) + 44px - var(--ph) * .3 - 140px - env(safe-area-inset-top, 0px)); }
+  .atelier .hero .hint { display: none; }
   .atelier .project .frame { display: none; }
   .atelier .path .inner { gap: 20px; }
   .atelier .line { gap: 12px; }
