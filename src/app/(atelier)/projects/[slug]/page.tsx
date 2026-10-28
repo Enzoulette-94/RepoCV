@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { projects } from "@/data/projects";
+import { projects, stateClass } from "@/data/projects";
 import { codingAi, projectTools, tools } from "@/data/stacks";
 import { SiteMenu } from "@/components/home/site-menu";
 import { ToolIcon } from "@/components/home/tool-icon";
@@ -52,7 +52,7 @@ export default async function ProjectPage({ params }: Params) {
           <header className="fiche doc-head">
             <p className="kind">
               <span>{p.sheet.kind}</span>
-              <span className={p.sheet.state === "En ligne" ? "online" : undefined}>{p.sheet.state}</span>
+              <span className={stateClass(p.sheet.state)}>{p.sheet.state}</span>
               <span>Projet {i + 1} sur {projects.length}</span>
             </p>
             <h1>{p.title}</h1>

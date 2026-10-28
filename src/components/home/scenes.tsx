@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import { projects, type Project } from "@/data/projects";
+import { projects, stateClass, type Project } from "@/data/projects";
 import { cloudWords, contact, hobbies, pathSteps } from "@/data/home";
 
 // Variables CSS en ligne : délai d'entrée, position dans le nuage…
@@ -63,7 +63,7 @@ export function ProjectsIndexScene() {
                 {live ? (
                   <a className="live" href={live} target="_blank" rel="noopener noreferrer">{p.sheet.address} <span aria-hidden="true">↗</span></a>
                 ) : (
-                  <span className="state">{p.sheet.state}</span>
+                  <span className={stateClass(p.sheet.state) === "pre" ? "state pre" : "state"}>{p.sheet.state}</span>
                 )}
                 <span className="thumb" aria-hidden="true"><Image src={p.image} alt="" fill sizes="120px" /></span>
               </li>
@@ -94,7 +94,7 @@ export function ProjectScenes() {
           <article className="fiche">
             <p className="kind" data-in="right" style={vars({ "--d": ".1s" })}>
               <span>{p.sheet.kind}</span>
-              <span className={p.sheet.state === "En ligne" ? "online" : undefined}>{p.sheet.state}</span>
+              <span className={stateClass(p.sheet.state)}>{p.sheet.state}</span>
               <span>Projet {i + 1} sur {n}</span>
             </p>
             <h2 id={`h-${p.slug}`} tabIndex={-1} data-in="right" style={vars({ "--d": ".16s" })}>{p.title}</h2>
