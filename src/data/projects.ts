@@ -14,103 +14,84 @@ export type Project = {
   featured: boolean;
   screenshots?: string[];
   status?: "completed" | "in-progress";
+  inProduction?: boolean;
+  /** Fiche courte affichée sur l'accueil */
+  sheet: {
+    kind: string;
+    state: "En ligne" | "Bientôt en ligne" | "En production" | "Formation";
+    /** Texte de la barre d'adresse sur la capture */
+    address: string;
+    pitch: string;
+    who: string;
+    need: string;
+    did: string;
+    now: string;
+    stack: string;
+    /** Capture sombre : fond plus discret */
+    darkShot?: boolean;
+  };
 };
 
 export const projects: Project[] = [
   {
-    slug: "gain-and-glory",
-    title: "GainAndGlory",
+    slug: "etcetera-studio",
+    title: "Etcetera Studio",
     description:
-      "Application de suivi sportif gamifiée — progresse, débloque des badges et affronte ta communauté.",
+      "J'ai créé le site d'Etcetera Studio, un institut de beauté et de bien-être à Chanteloup-en-Brie, pensé pour qu'on le trouve facilement sur Google.",
     longDescription:
-      "GainAndGlory est mon projet de fin de formation — 3 semaines pour concevoir et développer une application de A à Z, seul, avec une totale liberté sur les choix techniques. Une PWA de suivi sportif gamifiée, pensée pour la musculation et la course à pied. L'utilisateur gagne de l'XP à chaque séance, monte en niveau (titres thématiques LOTR/DBZ), débloque des badges selon ses performances, et suit sa progression via des graphiques et un calendrier d'activité. Le feed social permet de partager ses sessions, liker et commenter celles des autres en temps réel. Des objectifs collectifs par équipes et des classements globaux (tonnage, distance, XP) complètent l'aspect communautaire.\n\nCôté technique : React 19 + TypeScript, Vite, Tailwind CSS v4, Framer Motion, Supabase (Auth, PostgreSQL, Realtime, Storage). Navigation adaptive : SideNav desktop + BottomNav mobile avec drawer \"Plus\". PWA installable avec service worker Workbox.",
-    role: "Full-stack solo",
+      "Amèle et Sarah m'ont contacté pour créer le site de leur institut. Amèle s'occupe des ongles (manucure russe, soin japonais, pédicure), Sarah des soins du corps (drainage lymphatique, madérothérapie). Je voulais que le site donne la même impression que leur studio : un endroit doux et apaisant, où l'on vient prendre soin de soi. J'ai donc misé sur des tons chauds, beaucoup de photos du lieu et des textes qui parlent du bien-être plus que de la technique.\n\nLa partie qui m'a le plus intéressé, c'est le référencement. Un institut de quartier vit de sa clientèle locale, donc il fallait qu'on le trouve en cherchant « manucure » ou « drainage lymphatique » près de chez soi. J'ai fait en sorte que Google puisse lire tout le site, ses horaires, ses prestations et ses tarifs. Aujourd'hui, le site est bien référencé.\n\nJ'ai avancé avec elles au fil de leurs retours pendant trois semaines, jusqu'à la mise en ligne.",
+    role: "Solo",
     duration: "3 semaines",
     highlights: [
-      "Système de gamification complet : XP, niveaux (formule exponentielle), badges et streak quotidien",
-      "Feed social temps réel via Supabase Realtime (likes, commentaires, partage de sessions)",
-      "PWA installable, navigation adaptive desktop/mobile, lazy loading des pages",
-      "Architecture Supabase : RLS, VIEWs calculées (tonnage, km chaussures), Auth + Storage",
-      "Classements globaux et records personnels par exercice (Hall of Fame)",
+      "J'ai travaillé directement avec les deux gérantes, de leurs premières idées jusqu'à la mise en ligne",
+      "J'ai construit un univers doux et chaleureux qui reflète l'esprit bien-être du studio",
+      "J'ai travaillé le référencement local pour que l'institut ressorte sur Google",
+      "J'ai soigné la version mobile pour que le site s'ouvre vite sur téléphone",
+      "J'ai relié chaque bouton « Réserver » à leur page de prise de rendez-vous en ligne",
     ],
-    image: "/projects/GandG.png",
-    gradient: "linear-gradient(135deg, #1a0a00 0%, #3d1a00 100%)",
-    tags: ["React 19", "TypeScript", "Supabase", "Tailwind CSS v4", "Vite", "Framer Motion", "PWA", "PostgreSQL"],
-    github: "https://github.com/Enzoulette-94/GainAndGlory",
-    demo: "https://gg.enzonatali.dev/",
+    image: "/projects/etcetera-studio.png",
+    tags: ["React 19", "TypeScript", "Vite", "React Router", "Tailwind CSS v4", "Framer Motion", "SSR", "SEO"],
+    demo: "https://etceterastudio.fr/",
     featured: true,
     status: "completed",
     screenshots: [
-      "/projects/gain-and-glory/1.png",
-      "/projects/gain-and-glory/2.png",
-      "/projects/gain-and-glory/3.png",
-      "/projects/gain-and-glory/4.png",
+      "/projects/etcetera-studio/accueil.png",
+      "/projects/etcetera-studio/studio.png",
+      "/projects/etcetera-studio/manucure.png",
+      "/projects/etcetera-studio/drainage.png",
+      "/projects/etcetera-studio/avis.png",
     ],
-  },
-  {
-    slug: "marketplace",
-    title: "Haubergerie de Pontius",
-    description:
-      "Backend d'une marketplace — authentification, paiement Stripe et API REST. Projet collaboratif (rôle : backend uniquement).",
-    longDescription:
-      "Premier projet en équipe avec des étudiants de ma promotion — une vraie découverte du travail collaboratif : se répartir les tâches, communiquer sur l'avancement, s'adapter au rythme des autres. J'ai pris en charge l'intégralité du backend : authentification avec Devise, paiement sécurisé via Stripe, modélisation de la base de données PostgreSQL et création des API REST consommées par le frontend de l'équipe.",
-    role: "Backend",
-    duration: "1 mois",
-    highlights: [
-      "Premier projet en équipe — découverte du travail collaboratif et de la communication entre développeurs",
-      "Authentification complète avec Devise et paiement sécurisé via Stripe",
-      "API REST consommées par le frontend, modélisation PostgreSQL",
-    ],
-    image: "/projects/marketplace.png",
-    gradient: "linear-gradient(135deg, #5a1a1a 0%, #3d1515 100%)",
-    tags: ["Ruby on Rails", "PostgreSQL", "Devise", "Stripe", "HTML", "SCSS"],
-    github: "https://github.com/THP-Lab/template-marketplace",
-    demo: "https://haubergeriedepontius.com/",
-    featured: true,
-    screenshots: ["/projects/marketplace.png"],
-  },
-  {
-    slug: "rubberduck-ai",
-    title: "Rubberduck AI",
-    description:
-      "Un assistant IA qui t'aide à résoudre tes problèmes en te guidant par les bonnes questions — sans jamais te donner la réponse toute faite.",
-    longDescription:
-      "En programmation, il existe une technique appelée \"rubber duck debugging\" : expliquer son problème à voix haute à un canard en plastique. Le simple fait de verbaliser force à reformuler, et souvent la solution apparaît d'elle-même. Rubberduck AI remplace le canard par une IA : l'utilisateur décrit son bug ou son blocage, et l'assistant l'aide à raisonner étape par étape pour trouver la solution — sans donner la réponse directement, mais en posant les bonnes questions.\n\nProjet collaboratif construit en monorepo Turborepo. L'utilisateur se connecte via Google ou GitHub OAuth, puis échange avec l'IA en temps réel grâce au streaming SSE (les réponses s'affichent mot par mot comme sur ChatGPT). Les conversations sont sauvegardées. Côté technique : React 19 + Vite + React Router v7 côté client, Express v5 + Prisma + PostgreSQL + OpenAI Responses API côté serveur.",
-    role: "Full-stack — collaboratif",
-    duration: "En cours",
-    highlights: [
-      "Streaming SSE temps réel avec l'OpenAI Responses API — contrat delta / done / error",
-      "Auth Google OAuth complète avec cookies HTTP-only et sessions persistées",
-      "Monorepo Turborepo : frontend Vite/React et backend Express totalement découplés",
-      "Architecture en couches : routes, services IA, services chat — zéro fuite de secrets côté client",
-    ],
-    image: "/projects/rubberduck-ai.png",
-    tags: ["React", "TypeScript", "Vite", "Express", "Prisma", "PostgreSQL", "OpenAI", "Turborepo", "Tailwind CSS"],
-    github: "https://github.com/Naethr/Rubberduck_AI",
-    featured: true,
-    status: "in-progress",
-    screenshots: [
-      "/projects/rubberduck-ai/accueil.png",
-    ],
+    sheet: {
+      kind: "Site client",
+      state: "En ligne",
+      address: "etceterastudio.fr",
+      pitch: "Le site d’un institut de beauté et de bien-être, pensé pour qu’on le trouve sur Google.",
+      who: "Amèle et Sarah, deux sœurs qui tiennent un institut à Chanteloup-en-Brie. Elles m’ont contacté.",
+      need: "Être trouvées par les clientes du coin et leur permettre de réserver en un clic.",
+      did: "Tout le site, seul, en trois semaines : l’ambiance douce et chaleureuse, la carte des soins avec les tarifs, les avis, le référencement local.",
+      now: "En ligne et bien référencé.",
+      stack: "React, TypeScript, Vite",
+    },
   },
   {
     slug: "panem",
     title: "Boulangerie Panem",
     description:
-      "Site e-commerce pour une boulangerie artisanale — boutique click & collect, paiement Stripe et formulaire de contact.",
+      "Le site d'une vraie boulangerie à Saint-Maur : on choisit son pain en ligne, on paie et on passe le récupérer.",
     longDescription:
-      "Site vitrine et e-commerce conçu pour une boulangerie artisanale à Saint-Maur-des-Fossés. Les clients peuvent parcourir le catalogue (pains, viennoiseries, pâtisseries), composer leur panier et passer commande en click & collect avec paiement sécurisé via Stripe. Le site inclut une galerie, une page actualités et un formulaire de contact avec envoi d'email via Resend et protection hCaptcha.\n\nCôté technique : Next.js 16, TypeScript, Tailwind CSS v4, Framer Motion pour les animations, Zustand pour le panier, Stripe pour le paiement, Resend pour les emails. Design haut de gamme avec typographies Google Fonts (IM Fell English, Cormorant Garamond, Jost) et une palette sombre et dorée.",
+      "La gérante d'une boulangerie artisanale de Saint-Maur-des-Fossés m'a contacté pour créer son site. Je l'ai pensé comme la vitrine de la boutique : on y découvre les pains, les viennoiseries et les pâtisseries, on remplit son panier, on paie en ligne et on passe récupérer sa commande.\n\nJ'ai aussi ajouté une galerie, une page d'actualités et un formulaire de contact. Pour l'ambiance, j'ai choisi des couleurs sombres et dorées et des typographies à l'ancienne, pour rappeler le côté artisanal.\n\nLe site est terminé. J'attends les photos de la boulangerie pour le mettre en ligne.",
     role: "Solo",
     duration: "~2 semaines",
     highlights: [
-      "Boutique click & collect complète avec panier Zustand et paiement Stripe",
-      "Formulaire de contact avec envoi d'email via Resend et protection hCaptcha",
-      "Design haut de gamme — typographie élégante, palette sombre et dorée",
-      "Galerie, page actualités et navigation multi-page avec Framer Motion",
+      "J'ai construit une boutique en ligne complète, du panier au paiement",
+      "J'ai mis en place la commande à retirer en boutique",
+      "J'ai créé un formulaire de contact qui envoie directement un e-mail à la boulangerie",
+      "J'ai choisi une ambiance artisanale : couleurs sombres et dorées, typographies à l'ancienne",
     ],
     image: "/projects/panem.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "Resend", "Zustand", "Framer Motion"],
     github: "https://github.com/Enzoulette-94/Panem",
+    inProduction: true,
     featured: true,
     status: "in-progress",
     screenshots: [
@@ -119,21 +100,33 @@ export const projects: Project[] = [
       "/projects/panem/galerie.png",
       "/projects/panem/contact.png",
     ],
+    sheet: {
+      kind: "Site client",
+      state: "Bientôt en ligne",
+      address: "panem · en préparation",
+      pitch: "Une boutique en ligne pour commander son pain et passer le récupérer.",
+      who: "La gérante d’une boulangerie artisanale de Saint-Maur-des-Fossés, qui m’a contacté.",
+      need: "Vendre en click & collect et présenter ses produits.",
+      did: "La boutique complète : catalogue, panier, paiement en ligne avec Stripe, formulaire de contact, galerie.",
+      now: "Terminé. J’attends les photos de la boulangerie pour le mettre en ligne.",
+      stack: "Next.js, Stripe, Zustand",
+      darkShot: true,
+    },
   },
   {
     slug: "assg-site",
     title: "A.S.S.G",
     description:
-      "Site vitrine pour l'Association Sportive Sainte-Geneviève — activités sportives pour enfants, inscription et actualités.",
+      "Le site de l'association sportive Sainte-Geneviève, que j'ai fait bénévolement pour un ami. Les familles l'utilisent pour découvrir les activités et inscrire leurs enfants.",
     longDescription:
-      "Site vitrine multipage conçu pour l'Association Sportive Sainte-Geneviève, une asso proposant des activités sportives et ludiques aux enfants (Baby Gym, Judo, Sports de Raquette, Jeux Traditionnels). Le site couvre l'ensemble des besoins de l'association : présentation des activités, actualités, informations pratiques et formulaire d'inscription téléchargeable. Design coloré et accessible, adapté à une audience familiale, avec une navigation responsive via Alpine.js.",
-    role: "Solo",
+      "Un ami s'occupe de l'Association Sportive Sainte-Geneviève, qui propose des activités aux enfants : baby gym, judo, sports de raquette et jeux traditionnels. Je lui ai créé leur site bénévolement.\n\nLes parents y trouvent les activités, les actualités, les informations pratiques et le formulaire d'inscription. Comme le public est familial, j'ai choisi des couleurs vives et une navigation très simple, pensée d'abord pour le téléphone. Aujourd'hui, les familles l'utilisent vraiment.",
+    role: "Solo, bénévole",
     duration: "1 semaine",
     highlights: [
-      "Site multipage statique entièrement responsive (mobile-first)",
-      "Alpine.js pour la navigation mobile et les interactions légères",
-      "Palette graphique sur mesure avec Tailwind CSS v3 — typo Boogaloo + Nunito",
-      "Déployé sur Vercel avec build CSS optimisé (minifié)",
+      "J'ai réalisé ce site bénévolement pour l'association d'un ami",
+      "Le site est en ligne et utilisé par les familles",
+      "J'ai choisi un design coloré et simple, adapté aux parents et aux enfants",
+      "Je l'ai pensé d'abord pour le téléphone",
     ],
     image: "/projects/assg-site.png",
     tags: ["HTML", "Tailwind CSS", "Alpine.js", "JavaScript", "Vercel"],
@@ -149,5 +142,128 @@ export const projects: Project[] = [
       "/projects/assg-site/inscription.png",
       "/projects/assg-site/information.png",
     ],
+    sheet: {
+      kind: "Site bénévole",
+      state: "En ligne",
+      address: "assgparis.fr",
+      pitch: "Le site d’une association sportive pour enfants.",
+      who: "L’Association Sportive Sainte-Geneviève, dont s’occupe un ami. Je l’ai fait bénévolement.",
+      need: "Présenter les activités (baby gym, judo, raquettes…) et simplifier les inscriptions.",
+      did: "Un site coloré et simple, pensé d’abord pour le téléphone des parents.",
+      now: "En ligne et utilisé par les familles.",
+      stack: "HTML, Tailwind CSS, Alpine.js",
+    },
+  },
+  {
+    slug: "gain-and-glory",
+    title: "GainAndGlory",
+    description:
+      "Une appli de suivi sportif que j'ai créée pour mes amis : chaque séance rapporte de l'XP, des badges et une place au classement.",
+    longDescription:
+      "Avec mes amis, on s'entraîne beaucoup, entre la musculation et la course à pied, et on aime se tirer la bourre. J'ai voulu en faire une appli : chaque séance enregistrée rapporte de l'XP, on monte en niveau, on débloque des badges et on se compare dans les classements.\n\nJ'ai commencé GainAndGlory comme projet de fin de formation : trois semaines, seul, avec le choix total des outils. On peut y suivre sa progression avec des graphiques, partager ses séances, liker et commenter celles des autres, et se fixer des objectifs en équipe.\n\nJe continue à travailler dessus pour l'améliorer avec les retours de mes amis.",
+    role: "Solo",
+    duration: "3 semaines",
+    highlights: [
+      "J'ai imaginé tout le système de progression : XP, niveaux, badges et séries de jours d'entraînement",
+      "J'ai créé un fil d'actualité où chacun voit en direct les séances des autres",
+      "J'ai mis en place des classements et un mur des records personnels",
+      "J'ai rendu l'appli installable sur le téléphone, comme une vraie application",
+    ],
+    image: "/projects/GandG.png",
+    gradient: "linear-gradient(135deg, #1a0a00 0%, #3d1a00 100%)",
+    tags: ["React 19", "TypeScript", "Supabase", "Tailwind CSS v4", "Vite", "Framer Motion", "PWA", "PostgreSQL"],
+    github: "https://github.com/Enzoulette-94/GainAndGlory",
+    demo: "https://gg.enzonatali.dev/",
+    inProduction: true,
+    featured: true,
+    status: "completed",
+    screenshots: [
+      "/projects/gain-and-glory/1.png",
+      "/projects/gain-and-glory/2.png",
+      "/projects/gain-and-glory/3.png",
+      "/projects/gain-and-glory/4.png",
+    ],
+    sheet: {
+      kind: "Appli perso",
+      state: "En production",
+      address: "gainandglory · en production",
+      pitch: "Une appli de suivi sportif où chaque séance rapporte de l’XP.",
+      who: "Mes amis et moi : on s’entraîne beaucoup et on aime se tirer la bourre.",
+      need: "Suivre nos séances de muscu et de course, et rester motivés ensemble.",
+      did: "Toute l’appli, seul : niveaux, badges, classements, fil d’actualité en direct, installable sur le téléphone.",
+      now: "Je continue à l’améliorer avec leurs retours.",
+      stack: "React, Supabase, PWA",
+      darkShot: true,
+    },
+  },
+  {
+    slug: "rubberduck-ai",
+    title: "Rubberduck AI",
+    description:
+      "Une IA qui ne donne pas la réponse mais aide à la trouver, en posant les bonnes questions. Un projet qu'on construit en équipe.",
+    longDescription:
+      "Quand un développeur bloque, une astuce connue consiste à expliquer son problème à voix haute à un canard en plastique : en le formulant, on finit souvent par trouver la solution. Avec Rubberduck AI, le canard est remplacé par une IA. On lui décrit son blocage, et au lieu de donner la réponse, elle pose des questions pour aider à raisonner.\n\nOn construit ce projet en équipe, et on fait vraiment tout ensemble : on réfléchit aux fonctionnalités à plusieurs et on se partage le code sans frontière entre front et back. On peut se connecter avec Google ou GitHub, les réponses s'affichent au fur et à mesure et les conversations sont sauvegardées.",
+    role: "Travail d'équipe",
+    duration: "En cours",
+    highlights: [
+      "On a tout construit à plusieurs, en partageant le travail sur toutes les parties",
+      "On a réglé l'IA pour qu'elle guide par des questions au lieu de donner la réponse",
+      "On a mis en place la connexion avec Google et GitHub",
+      "Les réponses de l'IA s'affichent mot à mot, comme sur ChatGPT",
+    ],
+    image: "/projects/rubberduck-ai.png",
+    tags: ["React", "TypeScript", "Vite", "Express", "Prisma", "PostgreSQL", "OpenAI", "Turborepo", "Tailwind CSS"],
+    github: "https://github.com/Naethr/Rubberduck_AI",
+    inProduction: true,
+    featured: true,
+    status: "in-progress",
+    screenshots: [
+      "/projects/rubberduck-ai/accueil.png",
+    ],
+    sheet: {
+      kind: "Projet en équipe",
+      state: "En production",
+      address: "rubberduck · en production",
+      pitch: "Une IA qui aide à trouver la solution au lieu de la donner.",
+      who: "Les développeurs bloqués sur un bug. On le construit à plusieurs.",
+      need: "Comprendre son problème en le formulant, comme quand on l’explique à un canard en plastique.",
+      did: "Tout, ensemble : l’IA qui pose des questions, la connexion Google et GitHub, les conversations sauvegardées.",
+      now: "En cours de développement.",
+      stack: "React, Express, OpenAI",
+      darkShot: true,
+    },
+  },
+  {
+    slug: "marketplace",
+    title: "Haubergerie de Pontius",
+    description:
+      "Mon premier projet en équipe, à trois. Je me suis occupé de tout le backend : comptes utilisateurs, paiement Stripe et API.",
+    longDescription:
+      "C'était mon premier projet en équipe : on était trois étudiants de ma promotion à construire une marketplace. Je me suis occupé de tout le backend, c'est-à-dire les comptes utilisateurs, le paiement, la base de données et l'API utilisée par le reste de l'équipe.\n\nLe plus dur a été le paiement avec Stripe. J'ai passé beaucoup de temps à comprendre comment tout s'enchaîne, de la commande jusqu'à la confirmation du paiement, avant que ça fonctionne vraiment.\n\nC'est aussi la première fois que je travaillais en méthode agile. On se répartissait les tâches, on faisait le point régulièrement et on s'adaptait au rythme de chacun. J'y ai appris à communiquer sur mon avancement et à faire en sorte que mon travail s'emboîte avec celui des autres.",
+    role: "Backend, équipe de 3",
+    duration: "1 mois",
+    highlights: [
+      "J'ai développé tout le backend de la marketplace pour le reste de l'équipe",
+      "J'ai intégré le paiement Stripe, la partie qui m'a demandé le plus de travail",
+      "J'ai découvert la méthode agile : répartition des tâches, points réguliers, entraide",
+    ],
+    image: "/projects/marketplace.png",
+    gradient: "linear-gradient(135deg, #5a1a1a 0%, #3d1515 100%)",
+    tags: ["Ruby on Rails", "PostgreSQL", "Devise", "Stripe", "HTML", "SCSS"],
+    github: "https://github.com/THP-Lab/template-marketplace",
+    featured: true,
+    screenshots: ["/projects/marketplace.png"],
+    sheet: {
+      kind: "Projet en équipe",
+      state: "Formation",
+      address: "haubergerie · projet de formation",
+      pitch: "Une marketplace, mon premier projet en équipe.",
+      who: "Un projet de formation à trois, avec des étudiants de ma promotion.",
+      need: "Construire une boutique en ligne complète en un mois.",
+      did: "Tout le backend : comptes utilisateurs, paiement Stripe, base de données et API.",
+      now: "Terminé. Ma première expérience de la méthode agile.",
+      stack: "Ruby on Rails, PostgreSQL, Stripe",
+      darkShot: true,
+    },
   },
 ];

@@ -1,26 +1,26 @@
-import { Hero } from "@/components/sections/hero";
-import { AboutSection } from "@/components/sections/about";
-import { ProjectsSection } from "@/components/sections/projects";
-import { ContactSection } from "@/components/sections/contact";
-
-function SectionDivider() {
-  return (
-    <div className="mx-auto max-w-5xl px-4">
-      <div className="h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
-    </div>
-  );
-}
+import { Deck } from "@/components/home/deck";
+import {
+  ContactScene,
+  HeroScene,
+  HobbyScenes,
+  LikesScene,
+  PathScene,
+  ProjectScenes,
+  ProjectsIndexScene,
+} from "@/components/home/scenes";
+import { StacksScene } from "@/components/home/stacks";
 
 export default function Home() {
   return (
-    <>
-      <Hero />
-      <SectionDivider />
-      <ProjectsSection />
-      <SectionDivider />
-      <AboutSection />
-      <SectionDivider />
-      <ContactSection />
-    </>
+    <Deck>
+      <HeroScene />
+      <StacksScene />
+      <ProjectsIndexScene />
+      <ProjectScenes />
+      <PathScene />
+      <ContactScene />
+      <LikesScene />
+      <HobbyScenes />
+    </Deck>
   );
 }

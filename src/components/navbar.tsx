@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -13,49 +13,23 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { contact } from "@/data/home";
 
+// Les sections vivent sur l'accueil : chaque lien ouvre la bonne page de l'accueil
 const navLinks = [
-  { id: "projects", label: "Mes Projets" },
-  { id: "about", label: "À propos de moi" },
-  { id: "contact", label: "Contact" },
+  { href: "/", label: "Accueil" },
+  { href: "/#stacks", label: "Stacks" },
+  { href: "/#projets", label: "Projets" },
+  { href: "/#parcours", label: "Parcours" },
+  { href: "/#contact", label: "Contact" },
+  { href: "/#infos", label: "Infos" },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
-  const [activeSection, setActiveSection] = useState("hero");
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    const sectionIds = ["hero", "about", "projects", "contact"];
-    const observers: IntersectionObserver[] = [];
-
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(id);
-        },
-        { rootMargin: "-30% 0px -60% 0px" }
-      );
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => observers.forEach((o) => o.disconnect());
-  }, [pathname]);
-
   if (pathname === "/cv") return null;
-
-  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, id: string) => {
-    e.preventDefault();
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.location.href = `/#${id}`;
-    }
-  };
 
   return (
     <header className="fixed top-0 z-50 w-full bg-background/80 backdrop-blur-sm">
@@ -67,29 +41,15 @@ export function Navbar() {
 
         {/* Center — nav links */}
         <div className="hidden items-center justify-center gap-1 md:flex">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={(e) => scrollTo(e, "hero")}
-            className={cn(
-              "text-muted-foreground transition-colors hover:text-foreground",
-              activeSection === "hero" && "text-primary font-medium"
-            )}
-          >
-            Accueil
-          </Button>
           {navLinks.map((link) => (
             <Button
-              key={link.id}
+              key={link.href}
+              asChild
               variant="ghost"
               size="sm"
-              onClick={(e) => scrollTo(e, link.id)}
-              className={cn(
-                "text-muted-foreground transition-colors hover:text-foreground",
-                activeSection === link.id && "text-primary font-medium"
-              )}
+              className="text-muted-foreground transition-colors hover:text-foreground"
             >
-              {link.label}
+              <Link href={link.href}>{link.label}</Link>
             </Button>
           ))}
           <Button
@@ -98,7 +58,7 @@ export function Navbar() {
             size="sm"
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
-            <a href="/cv.pdf" download="EnzoNatali26-DevFusllStack.pdf">
+            <a href={contact.cv} download={contact.cvFileName}>
               Mon CV
             </a>
           </Button>
@@ -119,18 +79,14 @@ export function Navbar() {
               <div className="mt-6 flex flex-col gap-2">
                 {navLinks.map((link) => (
                   <Button
-                    key={link.id}
+                    key={link.href}
+                    asChild
                     variant="ghost"
-                    className={cn(
-                      "justify-start text-muted-foreground",
-                      activeSection === link.id && "text-primary font-medium"
-                    )}
-                    onClick={(e) => {
-                      scrollTo(e, link.id);
-                      setOpen(false);
-                    }}
+                    className="justify-start text-muted-foreground"
                   >
-                    {link.label}
+                    <Link href={link.href} onClick={() => setOpen(false)}>
+                      {link.label}
+                    </Link>
                   </Button>
                 ))}
                 <Button
@@ -139,8 +95,8 @@ export function Navbar() {
                   className="justify-start text-muted-foreground"
                 >
                   <a
-                    href="/cv.pdf"
-                    download="EnzoNatali26-DevFusllStack.pdf"
+                    href={contact.cv}
+                    download={contact.cvFileName}
                     onClick={() => setOpen(false)}
                   >
                     Mon CV

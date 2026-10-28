@@ -1,0 +1,104 @@
+/* Page « Tout le projet » : même direction artistique que l'accueil,
+   mais une page qui se lit en défilant. Les briques (.fiche, .frame, .wall, .pnav)
+   viennent de home.css ; ici, seulement la mise en page. */
+.atelier.doc { position: static; overflow: visible; min-height: 100svh; }
+.atelier.doc main { padding-top: calc(var(--nav-h) + 32px + env(safe-area-inset-top, 0px)); padding-bottom: 72px; }
+
+.atelier .back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: .9375rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .3s; }
+.atelier .back:hover { color: var(--fg); }
+.atelier .back span { transition: transform .3s var(--soft); }
+.atelier .back:hover span { transform: translateX(-3px); }
+
+/* En-tête */
+.atelier .doc-head { margin-top: 28px; max-width: 860px; }
+.atelier .doc-head h1 { margin-top: 14px; font-size: clamp(2.75rem, 7vw, 5.75rem); line-height: .98; }
+.atelier .doc-head .pitch { margin-top: 18px; max-width: 46ch; font-size: clamp(1.1875rem, 1.8vw, 1.5rem); line-height: 1.45; color: var(--muted); }
+.atelier .doc-head .links { margin-top: 26px; }
+.atelier .doc-head .links:empty { display: none; }
+.atelier .doc-shot { margin-top: 48px; }
+.atelier .doc-shot .shot { aspect-ratio: 16 / 9; }
+
+/* Le récit à gauche, la fiche à droite */
+.atelier .doc-body { margin-top: 88px; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 72px; align-items: start; }
+.atelier .doc-body h2.eyebrow { font-size: .75rem; letter-spacing: .14em; font-family: var(--body); }
+.atelier .doc-body h2.eyebrow + * { margin-top: 18px; }
+.atelier .doc-body section > h2.eyebrow:not(:first-child) { margin-top: 56px; }
+.atelier .story { display: grid; gap: 18px; max-width: 62ch; }
+.atelier .story p { font-size: 1.125rem; line-height: 1.75; }
+.atelier .story p:first-child::first-letter { float: left; margin: 6px 10px 0 0; font: 400 4.25rem/.8 var(--display); color: var(--accent); }
+.atelier .done { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; max-width: 62ch; }
+.atelier .done li { position: relative; padding-left: 26px; color: var(--muted); }
+.atelier .done li::before { content: ""; position: absolute; left: 0; top: .6em; width: 12px; height: 2px; background: var(--accent); }
+
+.atelier .doc-body .fiche { position: sticky; top: calc(var(--nav-h) + 24px); padding: 28px; border: 1px solid var(--line); border-radius: 18px; background: var(--tile); }
+.atelier .doc-body .fiche dl { margin: 0; }
+.atelier .doc-body .fiche dl div:first-child { border-top: 0; padding-top: 0; }
+.atelier .doc-body .wall { margin-top: 26px; gap: 16px; }
+.atelier .doc-body .wall ul { display: flex; flex-wrap: wrap; gap: 8px; }
+.atelier .doc-body .wall .t { padding: 8px 12px; }
+
+/* Captures */
+.atelier .doc-gallery { margin-top: 104px; }
+.atelier .doc-gallery h2.eyebrow { font-family: var(--body); }
+.atelier .shots { list-style: none; margin: 22px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.atelier .shots.single { grid-template-columns: minmax(0, 1fr); }
+/* Nombre impair : la dernière capture prend toute la largeur */
+.atelier .shots li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.atelier .shots li:last-child:nth-child(odd) .shot { aspect-ratio: 16 / 7; }
+.atelier .shots .frame { display: block; width: 100%; text-align: left; cursor: zoom-in; transition: transform .45s var(--soft), box-shadow .45s var(--soft); }
+.atelier .shots .frame:hover { transform: translateY(-4px); box-shadow: 0 40px 70px -34px rgba(31, 27, 22, .45); }
+.atelier .shots .frame-bar, .atelier .shots .shot { display: flex; }
+.atelier .shots .shot { display: block; }
+
+/* Capture en grand */
+.atelier .viewer { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; color: var(--finale-fg); overflow: hidden; }
+.atelier .viewer[open] { display: grid; place-items: center; }
+.atelier .viewer::backdrop { background: color-mix(in srgb, var(--finale-bg) 92%, transparent); backdrop-filter: blur(6px); }
+.atelier .viewer figure { margin: 0; display: grid; justify-items: center; gap: 14px; animation: doc-zoom .4s var(--soft); }
+.atelier .viewer img { width: auto; height: auto; max-width: min(92vw, 1600px); max-height: 82dvh; border-radius: 10px; box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .6); }
+.atelier .viewer figcaption { font: 400 .9375rem var(--display); color: var(--finale-muted); font-variant-numeric: tabular-nums; }
+.atelier .viewer button { position: fixed; width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--finale-line); color: var(--finale-fg); background: color-mix(in srgb, var(--finale-bg) 70%, transparent); display: grid; place-items: center; font-size: 1.25rem; line-height: 1; transition: border-color .3s, transform .3s var(--soft); }
+.atelier .viewer button:hover { border-color: var(--finale-accent); color: var(--finale-accent); }
+.atelier .viewer .close { top: max(20px, env(safe-area-inset-top, 0px)); right: max(20px, env(safe-area-inset-right, 0px)); font-size: 1.75rem; }
+.atelier .viewer .prev { left: max(20px, env(safe-area-inset-left, 0px)); top: 50%; transform: translateY(-50%); }
+.atelier .viewer .next { right: max(20px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); }
+@keyframes doc-zoom { from { opacity: 0; transform: scale(.96); } }
+
+/* Projet précédent / suivant */
+.atelier .doc-nav { margin-top: 104px; padding-top: 24px; }
+.atelier .doc-nav a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; text-decoration: none; color: var(--muted); transition: color .3s; }
+.atelier .doc-nav a b { color: var(--fg); font-weight: 500; }
+.atelier .doc-nav a:hover { color: var(--accent); }
+
+/* Arrivée sur la page */
+.atelier .doc-head > *, .atelier .doc-shot { animation: doc-rise .9s var(--soft) both; }
+.atelier .doc-head > :nth-child(2) { animation-delay: .06s; }
+.atelier .doc-head > :nth-child(3) { animation-delay: .12s; }
+.atelier .doc-head > :nth-child(4) { animation-delay: .18s; }
+.atelier .doc-shot { animation-delay: .24s; }
+@keyframes doc-rise { from { opacity: 0; transform: translate3d(0, 24px, 0); } }
+
+@media (max-width: 900px) {
+  .atelier.doc main { padding-top: calc(var(--nav-h) + 8px + env(safe-area-inset-top, 0px)); padding-bottom: 48px; }
+  .atelier .doc-head { margin-top: 12px; }
+  .atelier .doc-head h1 { font-size: clamp(2.5rem, 12vw, 3.5rem); }
+  .atelier .doc-head .pitch { display: block; font-size: 1.0625rem; margin-top: 12px; }
+  .atelier .doc-shot { margin-top: 32px; }
+  .atelier .doc-shot .shot { aspect-ratio: 16 / 10; }
+  .atelier .doc-body { margin-top: 56px; grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .atelier .doc-body .fiche { position: static; padding: 20px; }
+  .atelier .doc-body .wall .t { flex-direction: row; gap: 8px; padding: 7px 11px; border-radius: 12px; font-size: .8125rem; letter-spacing: 0; }
+  .atelier .doc-body .wall h3 { font-size: .6875rem; }
+  .atelier .story p { font-size: 1.0625rem; line-height: 1.7; }
+  .atelier .doc-gallery { margin-top: 64px; }
+  .atelier .shots { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .atelier .shots li:last-child:nth-child(odd) .shot { aspect-ratio: 16 / 10; }
+  .atelier .doc-nav { margin-top: 64px; flex-wrap: wrap; }
+  .atelier .doc-nav a:nth-child(2) { display: none; }
+  .atelier .viewer .prev, .atelier .viewer .next { top: auto; bottom: max(20px, env(safe-area-inset-bottom, 0px)); transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atelier .doc-head > *, .atelier .doc-shot, .atelier .viewer figure { animation: none; }
+  .atelier .shots .frame, .atelier .back span { transition: none; }
+}
