@@ -12,6 +12,7 @@
   --line: #DCD1C2;
   --on-accent: #FFF8F1;
   --online: #2E7D4F;
+  --live: #256B42;
   --finale-bg: #1F1B16;
   --finale-fg: #F6F1EA;
   --finale-muted: #B9AD9D;
@@ -30,7 +31,7 @@
 }
 .dark .atelier {
   --bg: #17130F; --bg-alt: #221C16; --tile: #221C16; --fg: #EDE6DC; --muted: #B3A797;
-  --accent: #E58157; --sage: #A3B196; --line: #3A322A; --on-accent: #1A120C; --online: #6CC38F;
+  --accent: #E58157; --sage: #A3B196; --line: #3A322A; --on-accent: #1A120C; --online: #6CC38F; --live: #6CC38F;
   --finale-bg: #2C1D15; --finale-fg: #F2E9DE; --finale-muted: #C7B6A3; --finale-accent: #F0946B; --finale-line: #4A372B;
   color-scheme: dark;
 }
@@ -156,7 +157,9 @@
 .atelier .plist .t { font-family: var(--display); font-size: 1.5rem; line-height: 1.15; }
 .atelier .plist .k { display: block; font-family: var(--body); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--sage); font-weight: 600; margin-top: 4px; }
 .atelier .plist .p { color: var(--muted); font-size: .9375rem; }
-.atelier .plist .live { justify-self: start; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; font-size: .9375rem; font-weight: 500; color: var(--accent); white-space: nowrap; padding-block: 6px; }
+.atelier .plist .live { justify-self: start; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; font-size: .9375rem; font-weight: 500; color: var(--live); white-space: nowrap; padding-block: 6px; }
+/* Site en ligne : vert, avec le même point que l’état « En ligne » */
+.atelier .plist .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--online); box-shadow: 0 0 0 3px color-mix(in srgb, var(--online) 22%, transparent); margin-right: 2px; }
 .atelier .plist .live:hover { text-decoration: underline; text-underline-offset: 4px; }
 .atelier .plist .state { justify-self: start; display: inline-flex; align-items: center; gap: 8px; font-size: .8125rem; color: var(--muted); white-space: nowrap; }
 .atelier .plist .state::before { content: ""; width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--sage); }
