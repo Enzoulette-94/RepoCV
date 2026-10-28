@@ -15,6 +15,21 @@ export type Project = {
   screenshots?: string[];
   status?: "completed" | "in-progress";
   inProduction?: boolean;
+  /** Fiche courte affichée sur l'accueil */
+  sheet: {
+    kind: string;
+    state: "En ligne" | "Bientôt en ligne" | "En production" | "Formation";
+    /** Texte de la barre d'adresse sur la capture */
+    address: string;
+    pitch: string;
+    who: string;
+    need: string;
+    did: string;
+    now: string;
+    stack: string;
+    /** Capture sombre : fond plus discret */
+    darkShot?: boolean;
+  };
 };
 
 export const projects: Project[] = [
@@ -46,36 +61,57 @@ export const projects: Project[] = [
       "/projects/etcetera-studio/drainage.png",
       "/projects/etcetera-studio/avis.png",
     ],
+    sheet: {
+      kind: "Site client",
+      state: "En ligne",
+      address: "etceterastudio.fr",
+      pitch: "Le site d’un institut de beauté et de bien-être, pensé pour qu’on le trouve sur Google.",
+      who: "Amèle et Sarah, deux sœurs qui tiennent un institut à Chanteloup-en-Brie. Elles m’ont contacté.",
+      need: "Être trouvées par les clientes du coin et leur permettre de réserver en un clic.",
+      did: "Tout le site, seul, en trois semaines : l’ambiance douce et chaleureuse, la carte des soins avec les tarifs, les avis, le référencement local.",
+      now: "En ligne et bien référencé.",
+      stack: "React, TypeScript, Vite",
+    },
   },
   {
-    slug: "gain-and-glory",
-    title: "GainAndGlory",
+    slug: "panem",
+    title: "Boulangerie Panem",
     description:
-      "Une appli de suivi sportif que j'ai créée pour mes amis : chaque séance rapporte de l'XP, des badges et une place au classement.",
+      "Le site d'une vraie boulangerie à Saint-Maur : on choisit son pain en ligne, on paie et on passe le récupérer.",
     longDescription:
-      "Avec mes amis, on s'entraîne beaucoup, entre la musculation et la course à pied, et on aime se tirer la bourre. J'ai voulu en faire une appli : chaque séance enregistrée rapporte de l'XP, on monte en niveau, on débloque des badges et on se compare dans les classements.\n\nJ'ai commencé GainAndGlory comme projet de fin de formation : trois semaines, seul, avec le choix total des outils. On peut y suivre sa progression avec des graphiques, partager ses séances, liker et commenter celles des autres, et se fixer des objectifs en équipe.\n\nJe continue à travailler dessus pour l'améliorer avec les retours de mes amis.",
+      "La gérante d'une boulangerie artisanale de Saint-Maur-des-Fossés m'a contacté pour créer son site. Je l'ai pensé comme la vitrine de la boutique : on y découvre les pains, les viennoiseries et les pâtisseries, on remplit son panier, on paie en ligne et on passe récupérer sa commande.\n\nJ'ai aussi ajouté une galerie, une page d'actualités et un formulaire de contact. Pour l'ambiance, j'ai choisi des couleurs sombres et dorées et des typographies à l'ancienne, pour rappeler le côté artisanal.\n\nLe site est terminé. J'attends les photos de la boulangerie pour le mettre en ligne.",
     role: "Solo",
-    duration: "3 semaines",
+    duration: "~2 semaines",
     highlights: [
-      "J'ai imaginé tout le système de progression : XP, niveaux, badges et séries de jours d'entraînement",
-      "J'ai créé un fil d'actualité où chacun voit en direct les séances des autres",
-      "J'ai mis en place des classements et un mur des records personnels",
-      "J'ai rendu l'appli installable sur le téléphone, comme une vraie application",
+      "J'ai construit une boutique en ligne complète, du panier au paiement",
+      "J'ai mis en place la commande à retirer en boutique",
+      "J'ai créé un formulaire de contact qui envoie directement un e-mail à la boulangerie",
+      "J'ai choisi une ambiance artisanale : couleurs sombres et dorées, typographies à l'ancienne",
     ],
-    image: "/projects/GandG.png",
-    gradient: "linear-gradient(135deg, #1a0a00 0%, #3d1a00 100%)",
-    tags: ["React 19", "TypeScript", "Supabase", "Tailwind CSS v4", "Vite", "Framer Motion", "PWA", "PostgreSQL"],
-    github: "https://github.com/Enzoulette-94/GainAndGlory",
-    demo: "https://gg.enzonatali.dev/",
+    image: "/projects/panem.png",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "Resend", "Zustand", "Framer Motion"],
+    github: "https://github.com/Enzoulette-94/Panem",
     inProduction: true,
     featured: true,
-    status: "completed",
+    status: "in-progress",
     screenshots: [
-      "/projects/gain-and-glory/1.png",
-      "/projects/gain-and-glory/2.png",
-      "/projects/gain-and-glory/3.png",
-      "/projects/gain-and-glory/4.png",
+      "/projects/panem/accueil.png",
+      "/projects/panem/boutique.png",
+      "/projects/panem/galerie.png",
+      "/projects/panem/contact.png",
     ],
+    sheet: {
+      kind: "Site client",
+      state: "Bientôt en ligne",
+      address: "panem · en préparation",
+      pitch: "Une boutique en ligne pour commander son pain et passer le récupérer.",
+      who: "La gérante d’une boulangerie artisanale de Saint-Maur-des-Fossés, qui m’a contacté.",
+      need: "Vendre en click & collect et présenter ses produits.",
+      did: "La boutique complète : catalogue, panier, paiement en ligne avec Stripe, formulaire de contact, galerie.",
+      now: "Terminé. J’attends les photos de la boulangerie pour le mettre en ligne.",
+      stack: "Next.js, Stripe, Zustand",
+      darkShot: true,
+    },
   },
   {
     slug: "assg-site",
@@ -106,6 +142,59 @@ export const projects: Project[] = [
       "/projects/assg-site/inscription.png",
       "/projects/assg-site/information.png",
     ],
+    sheet: {
+      kind: "Site bénévole",
+      state: "En ligne",
+      address: "assgparis.fr",
+      pitch: "Le site d’une association sportive pour enfants.",
+      who: "L’Association Sportive Sainte-Geneviève, dont s’occupe un ami. Je l’ai fait bénévolement.",
+      need: "Présenter les activités (baby gym, judo, raquettes…) et simplifier les inscriptions.",
+      did: "Un site coloré et simple, pensé d’abord pour le téléphone des parents.",
+      now: "En ligne et utilisé par les familles.",
+      stack: "HTML, Tailwind CSS, Alpine.js",
+    },
+  },
+  {
+    slug: "gain-and-glory",
+    title: "GainAndGlory",
+    description:
+      "Une appli de suivi sportif que j'ai créée pour mes amis : chaque séance rapporte de l'XP, des badges et une place au classement.",
+    longDescription:
+      "Avec mes amis, on s'entraîne beaucoup, entre la musculation et la course à pied, et on aime se tirer la bourre. J'ai voulu en faire une appli : chaque séance enregistrée rapporte de l'XP, on monte en niveau, on débloque des badges et on se compare dans les classements.\n\nJ'ai commencé GainAndGlory comme projet de fin de formation : trois semaines, seul, avec le choix total des outils. On peut y suivre sa progression avec des graphiques, partager ses séances, liker et commenter celles des autres, et se fixer des objectifs en équipe.\n\nJe continue à travailler dessus pour l'améliorer avec les retours de mes amis.",
+    role: "Solo",
+    duration: "3 semaines",
+    highlights: [
+      "J'ai imaginé tout le système de progression : XP, niveaux, badges et séries de jours d'entraînement",
+      "J'ai créé un fil d'actualité où chacun voit en direct les séances des autres",
+      "J'ai mis en place des classements et un mur des records personnels",
+      "J'ai rendu l'appli installable sur le téléphone, comme une vraie application",
+    ],
+    image: "/projects/GandG.png",
+    gradient: "linear-gradient(135deg, #1a0a00 0%, #3d1a00 100%)",
+    tags: ["React 19", "TypeScript", "Supabase", "Tailwind CSS v4", "Vite", "Framer Motion", "PWA", "PostgreSQL"],
+    github: "https://github.com/Enzoulette-94/GainAndGlory",
+    demo: "https://gg.enzonatali.dev/",
+    inProduction: true,
+    featured: true,
+    status: "completed",
+    screenshots: [
+      "/projects/gain-and-glory/1.png",
+      "/projects/gain-and-glory/2.png",
+      "/projects/gain-and-glory/3.png",
+      "/projects/gain-and-glory/4.png",
+    ],
+    sheet: {
+      kind: "Appli perso",
+      state: "En production",
+      address: "gainandglory · en production",
+      pitch: "Une appli de suivi sportif où chaque séance rapporte de l’XP.",
+      who: "Mes amis et moi : on s’entraîne beaucoup et on aime se tirer la bourre.",
+      need: "Suivre nos séances de muscu et de course, et rester motivés ensemble.",
+      did: "Toute l’appli, seul : niveaux, badges, classements, fil d’actualité en direct, installable sur le téléphone.",
+      now: "Je continue à l’améliorer avec leurs retours.",
+      stack: "React, Supabase, PWA",
+      darkShot: true,
+    },
   },
   {
     slug: "rubberduck-ai",
@@ -131,34 +220,18 @@ export const projects: Project[] = [
     screenshots: [
       "/projects/rubberduck-ai/accueil.png",
     ],
-  },
-  {
-    slug: "panem",
-    title: "Boulangerie Panem",
-    description:
-      "Le site d'une vraie boulangerie à Saint-Maur : on choisit son pain en ligne, on paie et on passe le récupérer.",
-    longDescription:
-      "La gérante d'une boulangerie artisanale de Saint-Maur-des-Fossés m'a contacté pour créer son site. Je l'ai pensé comme la vitrine de la boutique : on y découvre les pains, les viennoiseries et les pâtisseries, on remplit son panier, on paie en ligne et on passe récupérer sa commande.\n\nJ'ai aussi ajouté une galerie, une page d'actualités et un formulaire de contact. Pour l'ambiance, j'ai choisi des couleurs sombres et dorées et des typographies à l'ancienne, pour rappeler le côté artisanal.\n\nLe site est terminé. J'attends les photos de la boulangerie pour le mettre en ligne.",
-    role: "Solo",
-    duration: "~2 semaines",
-    highlights: [
-      "J'ai construit une boutique en ligne complète, du panier au paiement",
-      "J'ai mis en place la commande à retirer en boutique",
-      "J'ai créé un formulaire de contact qui envoie directement un e-mail à la boulangerie",
-      "J'ai choisi une ambiance artisanale : couleurs sombres et dorées, typographies à l'ancienne",
-    ],
-    image: "/projects/panem.png",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "Resend", "Zustand", "Framer Motion"],
-    github: "https://github.com/Enzoulette-94/Panem",
-    inProduction: true,
-    featured: true,
-    status: "in-progress",
-    screenshots: [
-      "/projects/panem/accueil.png",
-      "/projects/panem/boutique.png",
-      "/projects/panem/galerie.png",
-      "/projects/panem/contact.png",
-    ],
+    sheet: {
+      kind: "Projet en équipe",
+      state: "En production",
+      address: "rubberduck · en production",
+      pitch: "Une IA qui aide à trouver la solution au lieu de la donner.",
+      who: "Les développeurs bloqués sur un bug. On le construit à plusieurs.",
+      need: "Comprendre son problème en le formulant, comme quand on l’explique à un canard en plastique.",
+      did: "Tout, ensemble : l’IA qui pose des questions, la connexion Google et GitHub, les conversations sauvegardées.",
+      now: "En cours de développement.",
+      stack: "React, Express, OpenAI",
+      darkShot: true,
+    },
   },
   {
     slug: "marketplace",
@@ -180,5 +253,17 @@ export const projects: Project[] = [
     github: "https://github.com/THP-Lab/template-marketplace",
     featured: true,
     screenshots: ["/projects/marketplace.png"],
+    sheet: {
+      kind: "Projet en équipe",
+      state: "Formation",
+      address: "haubergerie · projet de formation",
+      pitch: "Une marketplace, mon premier projet en équipe.",
+      who: "Un projet de formation à trois, avec des étudiants de ma promotion.",
+      need: "Construire une boutique en ligne complète en un mois.",
+      did: "Tout le backend : comptes utilisateurs, paiement Stripe, base de données et API.",
+      now: "Terminé. Ma première expérience de la méthode agile.",
+      stack: "Ruby on Rails, PostgreSQL, Stripe",
+      darkShot: true,
+    },
   },
 ];
