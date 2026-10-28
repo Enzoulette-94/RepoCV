@@ -142,7 +142,7 @@ export function Deck({ children }: { children: ReactNode }) {
           settle(i);
           curtain.className = "curtain reveal";
           later(() => { curtain.className = "curtain"; busy = false; }, 820);
-        }, 900);
+        }, 1200);
       }
     }
     // Après la dernière page, on repart au début
