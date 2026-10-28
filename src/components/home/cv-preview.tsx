@@ -47,7 +47,7 @@ export function CvPreview() {
       </div>
       {open && (
         <div className="cv-paper">
-          <Image src="/cv-preview.png" alt="Aperçu du CV d’Enzo Natali, développeur web full-stack" width={1413} height={2000} sizes="(max-width: 900px) 100vw, 760px" priority />
+          <Image src="/cv-preview.png" alt="Aperçu du CV d’Enzo Natali, développeur web full-stack" width={1414} height={2000} sizes="(max-width: 900px) 100vw, 760px" priority />
         </div>
       )}
     </dialog>

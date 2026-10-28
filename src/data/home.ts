@@ -3,7 +3,7 @@ export const contact = {
   phone: "06 21 84 79 57",
   phoneHref: "tel:+33621847957",
   cv: "/cv.pdf",
-  cvFileName: "EnzoNatali26-DevFusllStack.pdf",
+  cvFileName: "EnzoNatali2026-DevFullStack.pdf",
 };
 
 export type PathStep = {

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Cv-EnzoNatali2026-DevFullStack</title>
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --blue: #7F96C8;
+  --sky: #8FC9F4;
+  --ink: #4E545A;
+  --head: #555B61;
+  --sub: #8C9298;
+  --soft: #9A9EA3;
+  --rule: #E3E5E8;
+}
+html, body { width: 210mm; height: 297mm; }
+body { font-family: -apple-system, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; color: var(--ink); font-size: 7.05pt; line-height: 1.5; -webkit-font-smoothing: antialiased; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+a { color: var(--blue); text-decoration: none; }
+
+header { position: relative; height: 41mm; padding: 9.6mm 0 0 10.2mm; border-bottom: 0.5mm solid #F0F1F3; overflow: hidden; }
+header h1 { font-size: 24pt; line-height: 1; font-weight: 700; letter-spacing: .02em; color: var(--blue); }
+header .role { margin-top: 2.2mm; font-size: 11.5pt; font-weight: 500; color: var(--sky); }
+header .info { margin-top: 4mm; font-size: 7.6pt; color: var(--ink); line-height: 1.95; letter-spacing: .01em; }
+header .info i { font-style: normal; color: var(--soft); padding: 0 1.4mm; }
+.rings { position: absolute; right: -6mm; top: -9mm; width: 66mm; height: 66mm; }
+.rings span { position: absolute; border: 0.25mm solid #ECEEF1; border-radius: 50%; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.photo { position: absolute; right: 10.5mm; top: 10.8mm; width: 24.6mm; height: 24.6mm; border-radius: 50%; overflow: hidden; border: 0.5mm solid #fff; box-shadow: 0 0 0 0.25mm #E6E8EB; }
+.photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; display: block; transform: scale(1.55); transform-origin: 52% 30%; }
+
+main { display: grid; grid-template-columns: 116.4mm 1fr; column-gap: 0; padding: 7.4mm 10.6mm 0 10.2mm; }
+.left { padding-right: 5.6mm; border-right: 0.3mm solid #EEF0F2; }
+.right { padding-left: 5.6mm; }
+
+h2 { font-size: 8.4pt; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--head); padding-bottom: 2mm; border-bottom: 0.3mm solid var(--rule); margin-bottom: 3.6mm; }
+section + section { margin-top: 5.6mm; }
+h3 { font-size: 6.5pt; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--sub); margin-top: 3.4mm; }
+h3:first-of-type { margin-top: 0; }
+
+.item { margin-top: 1.4mm; }
+.item + .item { margin-top: 2.6mm; }
+.row { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+.row b { font-size: 8.4pt; font-weight: 600; color: var(--blue); line-height: 1.25; }
+.row time { flex: none; font-size: 6.8pt; color: var(--sub); }
+ul { list-style: none; margin-top: 1mm; }
+li { position: relative; padding-left: 4mm; }
+li::before { content: ""; position: absolute; left: 1mm; top: .62em; width: 1mm; height: 1mm; border-radius: 50%; background: var(--ink); }
+.tech { margin-top: .8mm; font-size: 6.6pt; font-style: italic; color: var(--soft); }
+.desc { margin-top: .8mm; }
+.place { color: var(--ink); }
+
+.right p { line-height: 1.85; }
+.skills p { line-height: 1.75; margin-top: .5mm; }
+.skills strong { font-weight: 700; color: var(--head); }
+.dots { line-height: 1.85; }
+</style>
+</head>
+<body>
+<header>
+  <div class="rings" aria-hidden="true"><span style="width:66mm;height:66mm"></span><span style="width:52mm;height:52mm"></span><span style="width:38mm;height:38mm"></span></div>
+  <div class="photo"><img src="photo.jpg" alt="Enzo Natali"></div>
+  <h1>ENZO NATALI</h1>
+  <p class="role">Développeur Web Full-Stack</p>
+  <p class="info">Saint-Maur-des-Fossés, 94100<i>·</i>06 21 84 79 57<i>·</i><a href="mailto:enzonatali75@gmail.com">enzonatali75@gmail.com</a><br>
+  Portfolio : <a href="https://enzonatali.dev">enzonatali.dev</a><i>·</i>GitHub : <a href="https://github.com/Enzoulette-94">github.com/Enzoulette-94</a></p>
+</header>
+
+<main>
+  <div class="left">
+    <section>
+      <h2>Expériences professionnelles</h2>
+
+      <h3>Développeur web freelance</h3>
+      <div class="item">
+        <div class="row"><b>Etcetera Studio — Site d’institut de beauté</b><time>Sept. 2026 · En ligne</time></div>
+        <ul>
+          <li>Conception et développement complet du site d’un institut de beauté et de bien-être.</li>
+          <li>Référencement local et rendu côté serveur pour que l’institut ressorte sur Google.</li>
+          <li>Interface responsive et réservation en ligne reliée à chaque prestation.</li>
+        </ul>
+        <p class="tech">Technologies : React, TypeScript, Vite, React Router, Tailwind CSS, Framer Motion.</p>
+      </div>
+      <div class="item">
+        <div class="row"><b>Boulangerie Panem — Site e-commerce</b><time>Juin 2026 · Projet terminé</time></div>
+        <ul>
+          <li>Conception et développement complet d’un site e-commerce pour une boulangerie artisanale.</li>
+          <li>Création d’un parcours click and collect, intégration de Stripe et mise en place d’un formulaire avec Resend.</li>
+          <li>Développement d’une interface responsive et gestion de l’état avec Zustand.</li>
+        </ul>
+        <p class="tech">Technologies : Next.js, TypeScript, Tailwind CSS, Stripe, Resend, Zustand, Framer Motion.</p>
+      </div>
+      <div class="item">
+        <div class="row"><b>ASSG — Site vitrine associatif</b><time>Mai 2026 · Projet terminé</time></div>
+        <ul>
+          <li>Conception et développement complet du site de l’Association Sportive Sainte-Geneviève.</li>
+          <li>Création des pages présentant les activités, les inscriptions et les actualités.</li>
+          <li>Développement responsive, intégration d’interactions et déploiement sur Vercel.</li>
+        </ul>
+        <p class="tech">Technologies : HTML, Tailwind CSS, Alpine.js, JavaScript, Vercel.</p>
+      </div>
+
+      <h3>Projet de développement web</h3>
+      <div class="item">
+        <div class="row"><b>L’Haubergerie de Pontius —<br>Marketplace collaborative</b><time>Déc. 2025 – Jan. 2026 · Formation</time></div>
+        <ul>
+          <li>Développement du back-end d’une marketplace avec Ruby on Rails.</li>
+          <li>Mise en place de l’authentification avec Devise, intégration de Stripe et création d’une API REST.</li>
+          <li>Gestion des données avec PostgreSQL et collaboration avec l’équipe front-end.</li>
+        </ul>
+        <p class="tech">Technologies : Ruby on Rails, PostgreSQL, Devise, Stripe, API REST.</p>
+      </div>
+
+      <h3>Assistant d’éducation</h3>
+      <div class="item">
+        <div class="row"><b>Lycées Arago et Buffon, Paris</b><time>Sept. 2020 – Août 2025</time></div>
+        <p class="desc">Encadrement et suivi individualisé des élèves, en lien avec les équipes pédagogiques.</p>
+      </div>
+
+      <h3>Coach sportif indépendant</h3>
+      <div class="item">
+        <div class="row"><b>BodyHit et Full Body</b><time>Mars 2019 – Août 2025</time></div>
+        <p class="desc">Programmes personnalisés, animation de séances et gestion autonome de ma clientèle.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Formation</h2>
+      <div class="item">
+        <div class="row"><b>Formation intensive Builder IA</b><time>Avril 2026 – Mai 2026</time></div>
+        <p class="place">The Hacking Project</p>
+        <p class="desc">Utilisation des outils d’intelligence artificielle, automatisation et amélioration des méthodes de travail.</p>
+      </div>
+      <div class="item">
+        <div class="row"><b>Formation intensive Développeur Web Full-Stack</b><time>Sept. 2025 – Mars 2026</time></div>
+        <p class="place">The Hacking Project</p>
+        <p class="desc">JavaScript, React, Next.js, Node.js, Ruby on Rails, bases de données, API REST, Git et méthode Agile.</p>
+      </div>
+      <div class="item">
+        <div class="row"><b>Licence STAPS, spécialité MEEF</b><time>Sept. 2015 – Juin 2019</time></div>
+        <p class="place">Université Paris Descartes</p>
+      </div>
+      <div class="item">
+        <div class="row"><b>Baccalauréat économique et social</b><time>2015</time></div>
+        <p class="place">Lycée Notre-Dame des Oiseaux</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="right">
+    <section>
+      <h2>Profil professionnel</h2>
+      <p>Développeur web full-stack formé à The Hacking Project, je conçois des sites et applications web avec React, Next.js, TypeScript, Ruby on Rails et PostgreSQL. J’ai réalisé plusieurs projets pour de vrais clients, dont un site e&#8209;commerce, un site vitrine associatif et le site d’un institut de beauté. Le développement web représente pour moi un terrain d’exploration permanent : comprendre l’inconnu, analyser, expérimenter, corriger et progresser. Je recherche une opportunité pour m’investir dans des projets ambitieux, relever des défis techniques et continuer à évoluer rapidement au sein d’une équipe engagée.</p>
+    </section>
+
+    <section class="skills">
+      <h2>Compétences techniques</h2>
+      <p><strong>Front-end :</strong> React, Next.js, TypeScript, JavaScript, HTML, CSS, Tailwind CSS, shadcn/ui, Alpine.js</p>
+      <p><strong>Back-end :</strong> Ruby on Rails, Node.js, Express</p>
+      <p><strong>Bases de données :</strong> PostgreSQL, SQLite, Supabase</p>
+      <p><strong>API et services :</strong> API REST, Stripe, Devise, Resend</p>
+    </section>
+
+    <section>
+      <h2>Environnement de travail<br>et outils</h2>
+      <p>Git, GitHub, Docker, Vercel, Figma, Visual Studio Code, Claude, Codex</p>
+    </section>
+
+    <section>
+      <h2>Soft skills</h2>
+      <p class="dots">Méthode Agile · Travail en équipe · Communication · Autonomie · Adaptabilité · Pédagogie · Organisation · Résolution de problèmes</p>
+    </section>
+
+    <section>
+      <h2>Centres d’intérêt</h2>
+      <p class="dots">Sports collectifs · Jeux vidéo et culture numérique · Gastronomie</p>
+    </section>
+  </div>
+</main>
+</body>
+</html>
