@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Image de partage</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Instrument+Sans:wght@500;600&display=swap">
+<style>
+/* Image de partage (1200 × 630) : capture d’écran de cette page à 1200 × 630,
+   enregistrée dans public/ sous un nouveau nom (voir openGraph dans src/app/layout.tsx).
+   Tout est centré : WhatsApp ne garde parfois que le carré du milieu. */
+* { box-sizing: border-box; margin: 0; }
+html, body { width: 1200px; height: 630px; }
+body { position: relative; overflow: hidden; background: #F6F1EA; color: #1F1B16; display: grid; place-items: center; text-align: center; -webkit-font-smoothing: antialiased; }
+.rings span { position: absolute; left: 50%; top: 50%; border: 1.5px solid rgba(169, 72, 42, .09); border-radius: 50%; transform: translate(-50%, -50%); }
+main { position: relative; display: grid; justify-items: center; }
+.eyebrow { font: 600 19px "Instrument Sans", system-ui, sans-serif; letter-spacing: .22em; text-transform: uppercase; color: #66735C; }
+h1 { margin-top: 26px; font: 340 168px/.84 "Fraunces", Georgia, serif; letter-spacing: -.035em; }
+h1 span { display: block; }
+h1 em { color: #A9482A; font-style: italic; }
+.role { margin-top: 34px; font: 500 38px "Instrument Sans", system-ui, sans-serif; letter-spacing: -.01em; }
+.role span { color: #A9482A; }
+.url { margin-top: 24px; display: inline-flex; align-items: center; gap: 12px; font: 500 25px "Instrument Sans", system-ui, sans-serif; color: #5E554B; }
+.url::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: #2E7D4F; box-shadow: 0 0 0 5px rgba(46, 125, 79, .18); }
+</style>
+</head>
+<body>
+  <div class="rings" aria-hidden="true"><span style="width:620px;height:620px"></span><span style="width:860px;height:860px"></span><span style="width:1120px;height:1120px"></span></div>
+  <main>
+    <p class="eyebrow">Portfolio</p>
+    <h1><span>Enzo</span><span><em>Natali</em></span></h1>
+    <p class="role">Développeur web <span>Full Stack</span></p>
+    <p class="url">enzonatali.dev</p>
+  </main>
+</body>
+</html>

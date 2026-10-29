@@ -58,26 +58,27 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName: "Portfolio",
-    title: "Portfolio | Développeur Web Full Stack",
+    siteName: "Enzo Natali",
+    title: "Enzo Natali · Développeur web Full Stack",
     description:
-      "Portfolio de développeur web full stack — projets, compétences et parcours.",
+      "Sites et applications web sur mesure, de l’idée à la mise en ligne.",
     url: "/",
     images: [
       {
-        url: "/og-image-1200x630.png",
+        // Changer le nom à chaque nouvelle image : WhatsApp garde les anciennes en mémoire
+        url: "/og-enzo-natali-2026-10.png",
         width: 1200,
         height: 630,
-        alt: "Enzo Natali — Développeur Full Stack",
+        alt: "Enzo Natali, développeur web Full Stack",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portfolio | Développeur Web Full Stack",
+    title: "Enzo Natali · Développeur web Full Stack",
     description:
-      "Portfolio de développeur web full stack — projets, compétences et parcours.",
-    images: ["/og-image-1200x630.png"],
+      "Sites et applications web sur mesure, de l’idée à la mise en ligne.",
+    images: ["/og-enzo-natali-2026-10.png"],
   },
   robots: {
     index: true,
