@@ -65,6 +65,7 @@ export const hobbies: Hobby[] = [
     tag: "Avec mes proches",
     title: "Les moments à plusieurs",
     lead: "Ce que j’aime avant tout, c’est partager.",
+    background: "/home/partage.jpg",
     items: [
       {
         title: "Les discussions",
