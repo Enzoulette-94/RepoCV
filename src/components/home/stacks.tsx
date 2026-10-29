@@ -53,8 +53,8 @@ export function StacksScene() {
       <div className="inner">
         <div className="side">
           <p className="eyebrow" data-in>Stacks</p>
-          <h2 id="h-stacks" tabIndex={-1} data-in style={vars({ "--d": ".06s" })}>Avec qui <em>je travaille</em></h2>
-          <p className="lead" data-in style={vars({ "--d": ".12s" })}>Les outils de chaque projet, et les IA qui m’accompagnent quand je code.</p>
+          <h2 id="h-stacks" tabIndex={-1} data-in style={vars({ "--d": ".06s" })}>Avec qui <em>je collabore</em></h2>
+          <p className="lead" data-in style={vars({ "--d": ".12s" })}>Choisissez un projet pour voir avec quoi je l’ai construit.</p>
           <div className="projs-wrap" data-in style={vars({ "--d": ".18s" })}>
           <div className="projs" ref={row} data-scroll-x role="group" aria-label="Voir les outils d’un projet">
             <button type="button" aria-pressed={!slug} onClick={() => setSlug(null)}>Tous</button>
@@ -71,6 +71,7 @@ export function StacksScene() {
           </p>
         </div>
         <div className={current ? "wall filter" : "wall"}>
+          <p className="wall-title" data-in="right" style={vars({ "--d": ".1s" })}>Avec quoi <em>je travaille</em></p>
           <div className="ai" data-in="right" style={vars({ "--d": ".14s" })}>
             <h3>IA pour coder</h3>
             <ul>{codingAi.map((id) => tile(id, true))}</ul>
