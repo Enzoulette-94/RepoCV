@@ -22,6 +22,13 @@ export function HeroScene() {
           <span data-in="right" style={vars({ "--d": ".16s" })}><em>Natali</em></span>
         </h1>
         <p className="role" data-in style={vars({ "--d": ".3s" })}>Développeur web <span>Full Stack</span></p>
+        <p className="swipe" data-in style={vars({ "--d": ".36s" })}>
+          <span className="chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 15l7-7 7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 15l7-7 7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </span>
+          Glissez pour me découvrir
+        </p>
         <div className="actions" data-in style={vars({ "--d": ".4s" })}>
           <a className="btn btn-primary btn-lg" href="#projets">Voir mes projets <span aria-hidden="true">→</span></a>
           <a className="btn btn-outline btn-lg" href={contact.cv} download={contact.cvFileName} data-cv-preview>Voir mon CV <span aria-hidden="true">→</span></a>

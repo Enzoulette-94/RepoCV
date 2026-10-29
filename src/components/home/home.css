@@ -138,6 +138,12 @@
 .atelier .hero h1 { font-size: clamp(4rem, 13vw, 11rem); line-height: .88; font-weight: 340; letter-spacing: -0.035em; }
 .atelier .hero h1 span { display: block; }
 .atelier .hero h1 em { color: var(--accent); font-style: italic; }
+/* Invitation à glisser : mobile seulement, au-dessus des boutons */
+.atelier .hero .swipe { display: none; }
+.atelier .hero .swipe .chev { display: grid; justify-items: center; color: var(--accent); }
+.atelier .hero .swipe svg { width: 22px; height: 22px; animation: home-swipe 1.8s var(--soft) infinite; }
+.atelier .hero .swipe svg + svg { margin-top: -16px; opacity: .5; animation-delay: .12s; }
+@keyframes home-swipe { 0% { transform: translateY(8px); opacity: 0; } 35% { opacity: 1; } 70% { transform: translateY(-6px); opacity: 1; } 100% { transform: translateY(-10px); opacity: 0; } }
 .atelier .role { margin-top: 28px; font-size: clamp(1.375rem, 2.6vw, 2rem); font-weight: 500; letter-spacing: -0.01em; }
 .atelier .role span { color: var(--accent); }
 .atelier .hero .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px; }
@@ -360,7 +366,9 @@
   /* Le nom reste à l’épaule ; boutons et aide descendent au-dessus des flèches */
   .atelier .hero .inner { display: flex; flex-direction: column; gap: 0; min-height: calc(100svh - var(--nav-h) + 44px - var(--ph) * .36 - 140px - env(safe-area-inset-top, 0px)); }
   .atelier .hero .role { margin-bottom: 22px; }
-  .atelier .hero .actions { margin-top: auto; gap: 10px; flex-wrap: nowrap; }
+  .atelier .hero .swipe { display: grid; justify-items: center; gap: 4px; margin-top: auto; margin-bottom: 14px; font-size: .8125rem; font-weight: 500; text-shadow: 0 1px 14px var(--bg), 0 0 2px var(--bg); }
+  .atelier .hero .hint { display: none; }
+  .atelier .hero .actions { margin-top: 0; gap: 10px; flex-wrap: nowrap; }
   .atelier .hero .actions .btn { flex: 1 1 0; padding: 16px 10px; font-size: .9375rem; white-space: nowrap; }
   .atelier .hero .hint { margin-top: 16px; padding: 0; border: 0; background: none; font-size: .8125rem; }
   .atelier .hero .hint .keys { display: none; }
@@ -480,6 +488,8 @@
   .atelier .project .fiche h2 { margin-top: 2px; }
 }
 @media (max-width: 900px) and (max-height: 600px) {
+  .atelier .hero .swipe { display: flex; justify-content: center; align-items: center; gap: 6px; margin-bottom: 10px; }
+  .atelier .hero .swipe svg { width: 18px; height: 18px; }
   .atelier .project .frame .shot { aspect-ratio: 16 / 3; }
 }
 @media (max-height: 500px) {
@@ -507,11 +517,11 @@
 }
 @media (max-width: 380px) {
   .atelier .menu a { padding: 10px 4px; font-size: .78125rem; }
-  .atelier .hero .actions { flex-wrap: wrap; }
-  .atelier .hero .actions .btn { flex: 1 1 100%; }
 }
 /* Très petits écrans : on retire « Accueil », on y revient par la dernière page ou en remontant */
 @media (max-width: 340px) {
+  .atelier .hero .actions { flex-wrap: wrap; }
+  .atelier .hero .actions .btn { flex: 1 1 100%; }
   .atelier .menu li:first-child { display: none; }
 }
 @media (max-width: 900px) {
@@ -564,5 +574,7 @@
   .atelier .scene.shown .contact-bg img { animation: none; }
   .atelier .scene .line::after, .atelier .scene .line li { transform: none; opacity: 1; transition: none; }
   .atelier .line li.now .pt { animation: none; }
+  .atelier .hero .swipe svg { animation: none; }
+  .atelier .hero .swipe svg + svg { display: none; }
   .atelier .hero-photo { animation: none; }
 }
