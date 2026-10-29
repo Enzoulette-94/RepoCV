@@ -9,7 +9,7 @@ const CURTAIN_LABEL: Record<string, string> = {
   accueil: "Me revoilà",
   stacks: "Avec quoi je travaille",
   projets: "Bienvenue dans mon atelier",
-  parcours: "Le chemin que j’ai fait",
+  parcours: "Le chemin que j’ai parcouru",
   contact: "Contact",
   infos: "Bienvenue dans mon monde",
 };
