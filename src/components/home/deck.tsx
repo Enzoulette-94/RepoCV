@@ -7,7 +7,7 @@ import "./home.css";
 // Mot affiché sur le rideau entre deux chapitres
 const CURTAIN_LABEL: Record<string, string> = {
   accueil: "Me revoilà",
-  stacks: "Avec quoi je travaille",
+  stacks: "Avec qui je collabore\net avec quoi je travaille",
   projets: "Bienvenue dans mon atelier",
   parcours: "Le chemin que j’ai parcouru",
   contact: "Contact",
@@ -131,6 +131,8 @@ export function Deck({ children }: { children: ReactNode }) {
         later(() => { settle(i); busy = false; }, 980);
       } else {
         curtainLabel.textContent = CURTAIN_LABEL[to.dataset.chapter ?? ""] ?? "";
+        // Phrase longue : un peu plus petite pour garder des lignes pleines
+        curtainLabel.classList.toggle("long", curtainLabel.textContent.length > 32);
         curtain.className = "curtain cover";
         later(() => {
           settle(i);
